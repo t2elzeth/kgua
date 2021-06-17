@@ -14,7 +14,7 @@ class TestUserSignUp(APITestCase):
     def test_signup_using_valid_payload(self):
         """Test trying to signup using valid data case"""
         response = self.client.post(self.url, self.valid_payload)
-        print(response.data)
+
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_signup_using_empty_payload(self):
