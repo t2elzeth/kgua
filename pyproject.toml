@@ -32,3 +32,9 @@ skip_gitignore = true
 [tool.autoflake]
 remove_unused_variables = true
 remove_all_unused_imports = true
+
+[tool.autopep8]
+max_line_length = 79
+in-place = true
+recursive = true
+aggressive = 3
