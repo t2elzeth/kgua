@@ -51,7 +51,9 @@ class TestLogin(CreateUserAndSuperuserAndSetCredentialsMixin, APITestCase):
         self.assertTrue(Token.objects.filter(user=self.superuser).exists())
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertIn(
-            "auth_token", response.data, "auth_token is not present in response.data"
+            "auth_token",
+            response.data,
+            "auth_token is not present in response.data",
         )
 
     def test_login_with_invalid_credentials(self):

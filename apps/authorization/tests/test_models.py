@@ -11,7 +11,9 @@ class UserModelTests(UserDataMixin, TestCase):
 
         self.assertEqual(user.id, 1)
         self.assertFalse(user.is_active, "User is not deactivated by default")
-        self.assertFalse(user.is_staff, "Common user mustn't be staff by default")
+        self.assertFalse(
+            user.is_staff, "Common user mustn't be staff by default"
+        )
         self.assertFalse(
             user.is_superuser, "Common user mustn't be superuser by default"
         )
@@ -22,11 +24,15 @@ class UserModelTests(UserDataMixin, TestCase):
         """Test creation of superuser"""
         superuser = User.objects.create_superuser(**self.USER_DATA)
 
-        self.assertTrue(superuser.is_active, "Superuser is not active by default")
+        self.assertTrue(
+            superuser.is_active, "Superuser is not active by default"
+        )
         self.assertTrue(
             superuser.is_superuser, "Superuser's `is_superuser` is not True"
         )
-        self.assertTrue(superuser.is_staff, "Superuser's `is_staff` is not True")
+        self.assertTrue(
+            superuser.is_staff, "Superuser's `is_staff` is not True"
+        )
         self.assertIsInstance(superuser, User)
 
 

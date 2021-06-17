@@ -21,3 +21,14 @@ autopep8 = "^1.5.7"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+exclude = 'env/'
+line_length = 79
+
+[tool.isort]
+skip_gitignore = true
+
+[tool.autoflake]
+remove_unused_variables = true
+remove_all_unused_imports = true

@@ -6,7 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 sys.path.insert(0, os.path.join(BASE_DIR, "apps"))
 
-SECRET_KEY = "django-insecure-b77#&$bd92#h!v&txokhdng0lq1wl0#!(1!ecjykk^^l=o!#h$"
+SECRET_KEY = (
+    "django-insecure-b77#&$bd92#h!v&txokhdng0lq1wl0#!(1!ecjykk^^l=o!#h$"
+)
 
 DEBUG = True
 

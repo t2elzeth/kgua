@@ -24,7 +24,9 @@ class TokenViewSet(mixins.CreateModelMixin, GenericViewSet):
     def login(self, request):
         return self.create(request)
 
-    @action(methods=["post"], detail=False, permission_classes=[IsAuthenticated])
+    @action(
+        methods=["post"], detail=False, permission_classes=[IsAuthenticated]
+    )
     def logout(self, request):
         request.user.logout()
         return Response(status=status.HTTP_204_NO_CONTENT)

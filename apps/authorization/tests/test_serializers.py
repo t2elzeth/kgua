@@ -28,7 +28,11 @@ class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
 
         expected_data = [
             {"id": 1, "username": self.USER_DATA["username"], "email": None},
-            {"id": 2, "username": self.SUPERUSER_DATA["username"], "email": None},
+            {
+                "id": 2,
+                "username": self.SUPERUSER_DATA["username"],
+                "email": None,
+            },
         ]
 
         self.assertEqual(expected_data, serializer.data)
@@ -44,7 +48,11 @@ class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
         is_valid = serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        expected_data = {"id": 3, "username": request_data["username"], "email": None}
+        expected_data = {
+            "id": 3,
+            "username": request_data["username"],
+            "email": None,
+        }
 
         self.assertTrue(is_valid)
         self.assertEqual(expected_data, serializer.data)

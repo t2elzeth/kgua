@@ -22,7 +22,9 @@ class CreateUserAndSuperuserMixin(UserDataMixin):
         self.supertoken = Token.objects.create(user=self.superuser)
 
 
-class CreateUserAndSuperuserAndSetCredentialsMixin(CreateUserAndSuperuserMixin):
+class CreateUserAndSuperuserAndSetCredentialsMixin(
+    CreateUserAndSuperuserMixin
+):
     AUTHENTICATION_CREDENTIALS = "Token {}"
 
     def set_credentials(self, token=None):
