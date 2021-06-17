@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "kgua"
+version = "0.1.0"
+description = "KGUA site backend"
+authors = ["Ulukman Amangeldiev <ulukmanatageldiuulu@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.4"
+djangorestframework = "^3.12.4"
+drf-yasg = "^1.20.0"
+django-cors-headers = "^3.7.0"
+django-templated-mail = "^1.1.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.6b0"
+isort = "^5.8.0"
+flake8 = "^3.9.2"
+autopep8 = "^1.5.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
