@@ -10,25 +10,18 @@ class TestUserSignUp(APITestCase):
     def setUp(self) -> None:
         self.url = reverse("user-signup")
         self.valid_payload = UserDataMixin.USER_DATA
-        self.invalid_payload = {"email": "invalidemail", "password": "invalid password"}
 
     def test_signup_using_valid_payload(self):
         """Test trying to signup using valid data case"""
         response = self.client.post(self.url, self.valid_payload)
-
+        print(response.data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-    def test_signup_using_invalid_payload(self):
-        """Test trying to signup using invalid data case"""
-        response = self.client.post(self.url, self.invalid_payload)
-
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
     def test_signup_using_empty_payload(self):
         """Test trying to signup using empty data case"""
         response = self.client.post(self.url, {})
 
-        self.assertIn("email", response.data)
+        self.assertIn("username", response.data)
         self.assertIn("password", response.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -47,7 +40,7 @@ class TestLogin(CreateUserAndSuperuserAndSetCredentialsMixin, APITestCase):
         self.url = reverse("token-auth-login")
         self.valid_credentials = self.SUPERUSER_DATA
         self.invalid_credentials = {
-            "email": "invalidcredentials@gmail.com",
+            "username": "invalidcredentials",
             "password": "invalidcredentialspassword",
         }
 

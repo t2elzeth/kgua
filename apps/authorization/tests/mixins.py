@@ -6,11 +6,11 @@ User = get_user_model()
 
 class UserDataMixin:
     USER_DATA = {
-        "email": "testuser@gmail.com",
+        "username": "testuser",
         "password": "admin",
     }
     SUPERUSER_DATA = {
-        "email": "testsuperuser@gmail.com",
+        "username": "testsuperuser",
         "password": "admin",
     }
 

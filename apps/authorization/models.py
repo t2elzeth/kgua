@@ -11,12 +11,14 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = managers.UserManager()
 
-    email = models.EmailField(max_length=255, unique=True, verbose_name="Почта")
+
+    username = models.CharField(max_length=255, unique=True)
+    email = models.EmailField(blank=True, null=True)
 
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
 
-    USERNAME_FIELD = "email"
+    USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
 
     def __str__(self):

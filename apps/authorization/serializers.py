@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["id", "email", "password"]
+        fields = ["id", "username", 'email', "password"]
 
     def create(self, validated_data: dict):
         """Create user"""
@@ -18,13 +18,13 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
     def update(self, instance, validated_data):
-        if "email" in validated_data:
-            raise ValidationError({"error": "Email cannot be updated!"})
+        if "username" in validated_data:
+            raise ValidationError({"error": "Username cannot be updated!"})
         return super().update(instance, validated_data)
 
 
 class TokenSerializer(serializers.Serializer):
-    email = serializers.EmailField(write_only=True)
+    username = serializers.CharField(write_only=True)
     password = serializers.CharField(write_only=True)
     auth_token = serializers.CharField(source="key", read_only=True)
 
@@ -35,7 +35,7 @@ class TokenSerializer(serializers.Serializer):
 
     def validate(self, data):
         password = data.get("password")
-        params = {"email": data.get("email")}
+        params = {"username": data.get("username")}
         self.user = authenticate(
             request=self.context.get("request"), password=password, **params
         )

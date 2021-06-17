@@ -16,7 +16,7 @@ class UserModelTests(UserDataMixin, TestCase):
             user.is_superuser, "Common user mustn't be superuser by default"
         )
         self.assertTrue(user.check_password(self.USER_DATA["password"]))
-        self.assertEqual(user.get_username(), self.USER_DATA["email"])
+        self.assertEqual(user.get_username(), self.USER_DATA["username"])
 
     def test_super_user_creation(self):
         """Test creation of superuser"""

@@ -16,6 +16,7 @@ class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
 
         expected_data = {
             "id": self.user.id,
+            'username': self.user.username,
             "email": self.user.email,
         }
 
@@ -28,11 +29,13 @@ class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
         expected_data = [
             {
                 "id": 1,
-                "email": self.USER_DATA["email"],
+                "username": self.USER_DATA["username"],
+                'email': None
             },
             {
                 "id": 2,
-                "email": self.SUPERUSER_DATA["email"],
+                "username": self.SUPERUSER_DATA["username"],
+                'email': None
             },
         ]
 
@@ -41,7 +44,7 @@ class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
     def test_user_create(self):
         """Test creating new user instance via serializer"""
         request_data = {
-            "email": "fullstackdev@gmail.com",
+            "username": "fullstackdev",
             "password": "adminfullstack",
         }
 
@@ -51,7 +54,8 @@ class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
 
         expected_data = {
             "id": 3,
-            "email": request_data["email"],
+            "username": request_data["username"],
+            'email': None
         }
 
         self.assertTrue(is_valid)
