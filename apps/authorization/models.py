@@ -11,7 +11,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = managers.UserManager()
 
-
     username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(blank=True, null=True)
 
