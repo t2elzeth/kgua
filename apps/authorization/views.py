@@ -5,35 +5,26 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from .models import User
-from .serializers import (
-    UserSerializer,
-    TokenSerializer
-)
+from .serializers import TokenSerializer, UserSerializer
 
 
-class UsersViewSet(mixins.CreateModelMixin,
-                   GenericViewSet):
+class UsersViewSet(mixins.CreateModelMixin, GenericViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    @action(methods=['post'], detail=False)
+    @action(methods=["post"], detail=False)
     def signup(self, request):
         return self.create(request)
 
 
-class TokenViewSet(mixins.CreateModelMixin,
-                   GenericViewSet):
+class TokenViewSet(mixins.CreateModelMixin, GenericViewSet):
     serializer_class = TokenSerializer
 
-    @action(methods=['post'], detail=False)
+    @action(methods=["post"], detail=False)
     def login(self, request):
         return self.create(request)
 
-    @action(
-        methods=['post'],
-        detail=False,
-        permission_classes=[IsAuthenticated]
-    )
+    @action(methods=["post"], detail=False, permission_classes=[IsAuthenticated])
     def logout(self, request):
         request.user.logout()
         return Response(status=status.HTTP_204_NO_CONTENT)

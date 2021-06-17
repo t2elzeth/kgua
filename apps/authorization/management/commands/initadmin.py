@@ -5,11 +5,14 @@ from django.core.management.base import BaseCommand
 
 User = get_user_model()
 
-USER_DEFAULT_USERNAMES = {"email": "admin@gmail.com", "username": "admin", "phone": "996312312312"}
+USER_DEFAULT_USERNAMES = {
+    "email": "admin@gmail.com",
+    "username": "admin",
+    "phone": "996312312312",
+}
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **options):
         default_username = USER_DEFAULT_USERNAMES.get(User.USERNAME_FIELD)
         if default_username is None:
@@ -22,10 +25,7 @@ class Command(BaseCommand):
 
         user_filter = {User.USERNAME_FIELD: username}
         if not User.objects.filter(**user_filter).exists():
-            user_data = {
-                User.USERNAME_FIELD: username,
-                'password': password
-            }
+            user_data = {User.USERNAME_FIELD: username, "password": password}
             User.objects.create_superuser(**user_data)
             print(f"{username} user has been created!")
         else:

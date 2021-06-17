@@ -6,16 +6,16 @@ User = get_user_model()
 
 class UserDataMixin:
     USER_DATA = {
-        'email': 'testuser@gmail.com',
-        'password': 'admin',
-        'first_name': 'Test',
-        'last_name': 'User'
+        "email": "testuser@gmail.com",
+        "password": "admin",
+        "first_name": "Test",
+        "last_name": "User",
     }
     SUPERUSER_DATA = {
-        'email': 'testsuperuser@gmail.com',
-        'password': 'admin',
-        'first_name': 'Test',
-        'last_name': 'User'
+        "email": "testsuperuser@gmail.com",
+        "password": "admin",
+        "first_name": "Test",
+        "last_name": "User",
     }
 
 
@@ -27,7 +27,7 @@ class CreateUserAndSuperuserMixin(UserDataMixin):
 
 
 class CreateUserAndSuperuserAndSetCredentialsMixin(CreateUserAndSuperuserMixin):
-    AUTHENTICATION_CREDENTIALS = 'Token {}'
+    AUTHENTICATION_CREDENTIALS = "Token {}"
 
     def set_credentials(self, token=None):
         self.client.credentials(

@@ -10,13 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = [
-            'id',
-            'first_name',
-            'last_name',
-            'email',
-            'password'
-        ]
+        fields = ["id", "first_name", "last_name", "email", "password"]
 
     def create(self, validated_data: dict):
         """Create user"""
@@ -41,13 +35,9 @@ class TokenSerializer(serializers.Serializer):
 
     def validate(self, data):
         password = data.get("password")
-        params = {
-            'email': data.get('email')
-        }
+        params = {"email": data.get("email")}
         self.user = authenticate(
-            request=self.context.get("request"),
-            password=password,
-            **params
+            request=self.context.get("request"), password=password, **params
         )
         if not self.user:
             self.user = User.objects.get_object_or_none(**params)

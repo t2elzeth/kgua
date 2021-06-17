@@ -1,12 +1,11 @@
 from django.test import TestCase
 
-from .mixins import CreateUserAndSuperuserMixin
 from ..models import User
 from ..serializers import UserSerializer
+from .mixins import CreateUserAndSuperuserMixin
 
 
-class TestUserSerializer(CreateUserAndSuperuserMixin,
-                         TestCase):
+class TestUserSerializer(CreateUserAndSuperuserMixin, TestCase):
     def setUp(self):
         super().setUp()
         self.users_list = [self.user, self.superuser]
@@ -16,10 +15,10 @@ class TestUserSerializer(CreateUserAndSuperuserMixin,
         serializer = UserSerializer(self.user)
 
         expected_data = {
-            'id': self.user.id,
-            'first_name': self.user.first_name,
-            'last_name': self.user.last_name,
-            'email': self.user.email
+            "id": self.user.id,
+            "first_name": self.user.first_name,
+            "last_name": self.user.last_name,
+            "email": self.user.email,
         }
 
         self.assertEqual(expected_data, serializer.data)
@@ -30,17 +29,17 @@ class TestUserSerializer(CreateUserAndSuperuserMixin,
 
         expected_data = [
             {
-                'id': 1,
-                'first_name': self.USER_DATA['first_name'],
-                'last_name': self.USER_DATA['last_name'],
-                'email': self.USER_DATA['email']
+                "id": 1,
+                "first_name": self.USER_DATA["first_name"],
+                "last_name": self.USER_DATA["last_name"],
+                "email": self.USER_DATA["email"],
             },
             {
-                'id': 2,
-                'first_name': self.SUPERUSER_DATA['first_name'],
-                'last_name': self.SUPERUSER_DATA['last_name'],
-                'email': self.SUPERUSER_DATA['email']
-            }
+                "id": 2,
+                "first_name": self.SUPERUSER_DATA["first_name"],
+                "last_name": self.SUPERUSER_DATA["last_name"],
+                "email": self.SUPERUSER_DATA["email"],
+            },
         ]
 
         self.assertEqual(expected_data, serializer.data)
@@ -48,10 +47,10 @@ class TestUserSerializer(CreateUserAndSuperuserMixin,
     def test_user_create(self):
         """Test creating new user instance via serializer"""
         request_data = {
-            'first_name': 'Ulukman',
-            'last_name': 'Amangeldiev',
-            'email': 'fullstackdev@gmail.com',
-            'password': 'adminfullstack'
+            "first_name": "Ulukman",
+            "last_name": "Amangeldiev",
+            "email": "fullstackdev@gmail.com",
+            "password": "adminfullstack",
         }
 
         serializer = UserSerializer(data=request_data)
@@ -59,10 +58,10 @@ class TestUserSerializer(CreateUserAndSuperuserMixin,
         serializer.save()
 
         expected_data = {
-            'id': 3,
-            'first_name': request_data['first_name'],
-            'last_name': request_data['last_name'],
-            'email': request_data['email'],
+            "id": 3,
+            "first_name": request_data["first_name"],
+            "last_name": request_data["last_name"],
+            "email": request_data["email"],
         }
 
         self.assertTrue(is_valid)
