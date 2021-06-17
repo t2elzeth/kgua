@@ -8,14 +8,10 @@ class UserDataMixin:
     USER_DATA = {
         "email": "testuser@gmail.com",
         "password": "admin",
-        "first_name": "Test",
-        "last_name": "User",
     }
     SUPERUSER_DATA = {
         "email": "testsuperuser@gmail.com",
         "password": "admin",
-        "first_name": "Test",
-        "last_name": "User",
     }
 
 

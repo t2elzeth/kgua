@@ -28,8 +28,6 @@ class TestUserSignUp(APITestCase):
         """Test trying to signup using empty data case"""
         response = self.client.post(self.url, {})
 
-        self.assertIn("first_name", response.data)
-        self.assertIn("last_name", response.data)
         self.assertIn("email", response.data)
         self.assertIn("password", response.data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
