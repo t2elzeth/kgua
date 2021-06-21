@@ -12,12 +12,20 @@ class Staff(models.Model):
     def __str__(self):
         return f"{self.full_name}: {self.short_position}"
 
+    class Meta:
+        verbose_name = 'Персонал'
+        verbose_name_plural = 'Персонал'
+
 
 class AdditionalData(models.Model):
     title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Дополнительная информация персонала'
+        verbose_name_plural = 'Дополнительные информации персонала'
 
 
 class StaffAdditionalData(models.Model):
@@ -42,3 +50,7 @@ class Vacancy(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = _('Вакансия')
+        verbose_name_plural = _('Вакансии')
