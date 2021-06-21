@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     "corsheaders",
     # Own
     "authorization",
+    "news",
+    "staff",
 ]
 
 MIDDLEWARE = [
@@ -109,3 +111,4 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication",
     ),
 }
+DATETIME_FORMAT = "d M Y H:i:s"

@@ -1,0 +1,32 @@
+from django.db import models
+from django.utils.translation import gettext as _
+
+
+class Staff(models.Model):
+    full_name = models.CharField(max_length=255)
+    short_position = models.CharField(max_length=255)
+    full_position = models.CharField(max_length=255)
+    experience = models.CharField(max_length=255)
+    image = models.ImageField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.full_name}: {self.short_position}'
+
+
+class AdditionalData(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+
+class StaffAdditionalData(models.Model):
+    staff = models.ForeignKey(
+        Staff, on_delete=models.CASCADE, related_name="additionals"
+    )
+    additional_data = models.ForeignKey(AdditionalData, on_delete=models.CASCADE, related_name='additionals')
+    content = models.TextField()
+
+    class Meta:
+        verbose_name = _('Дополнительная информация')
+        verbose_name_plural = _('Дополнительная информация')
