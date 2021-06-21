@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext as _
 
 
 class ApplicationDocument(models.Model):
@@ -8,5 +9,5 @@ class ApplicationDocument(models.Model):
         return self.content
 
     class Meta:
-        verbose_name = 'Документ для поступления'
-        verbose_name_plural = 'Документы для поступления'
+        verbose_name = _("Документ для поступления")
+        verbose_name_plural = _("Документы для поступления")

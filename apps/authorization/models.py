@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
+from django.utils.translation import gettext as _
 from rest_framework.authtoken.models import Token
 
 from . import managers
@@ -45,5 +46,5 @@ class User(AbstractBaseUser, PermissionsMixin):
         return super().has_perm(perm, obj)
 
     class Meta:
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
+        verbose_name = _("Пользователь")
+        verbose_name_plural = _("Пользователи")

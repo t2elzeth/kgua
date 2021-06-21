@@ -13,8 +13,8 @@ class Staff(models.Model):
         return f"{self.full_name}: {self.short_position}"
 
     class Meta:
-        verbose_name = 'Персонал'
-        verbose_name_plural = 'Персонал'
+        verbose_name = _("Персонал")
+        verbose_name_plural = _("Персонал")
 
 
 class AdditionalData(models.Model):
@@ -24,8 +24,8 @@ class AdditionalData(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Дополнительная информация персонала'
-        verbose_name_plural = 'Дополнительные информации персонала'
+        verbose_name = _("Дополнительная информация персонала")
+        verbose_name_plural = _("Дополнительные информации персонала")
 
 
 class StaffAdditionalData(models.Model):
@@ -52,5 +52,5 @@ class Vacancy(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = _('Вакансия')
-        verbose_name_plural = _('Вакансии')
+        verbose_name = _("Вакансия")
+        verbose_name_plural = _("Вакансии")

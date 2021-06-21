@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext as _
 
 
 class News(models.Model):
@@ -11,5 +12,5 @@ class News(models.Model):
         return self.title[:20]
 
     class Meta:
-        verbose_name = 'Новость'
-        verbose_name_plural = 'Новости'
+        verbose_name = _("Новость")
+        verbose_name_plural = _("Новости")
