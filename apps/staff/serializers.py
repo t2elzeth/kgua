@@ -15,12 +15,10 @@ class StaffDetailSerializer(serializers.ModelSerializer):
     def get_additional_data(self, staff):
         additionals = AdditionalData.objects.filter(additionals__staff=staff)
 
-        additional_data = {}
-        for additional in additionals:
-            additional_name = additional.title
-            additional_data[additional_name] = [
-                el.content for el in additional.additionals.all()
-            ]
+        additional_data = {
+            additional.title: [el.content for el in additional.additionals.all()]
+            for additional in additionals
+        }
 
         return additional_data
 
