@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import AdditionalData, Staff, StaffAdditionalData
+from .models import AdditionalData, Staff, StaffAdditionalData, Vacancy
 
 
 class StaffAdditionalDataInline(admin.StackedInline):
@@ -14,3 +14,4 @@ class StaffAdmin(admin.ModelAdmin):
 
 
 admin.site.register(AdditionalData)
+admin.site.register(Vacancy)
