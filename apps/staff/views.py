@@ -1,7 +1,7 @@
 from rest_framework import generics
 
 from .models import Staff
-from .serializers import StaffListSerializer, StaffDetailSerializer
+from .serializers import StaffDetailSerializer, StaffListSerializer
 
 
 class StaffListAPIView(generics.ListAPIView):

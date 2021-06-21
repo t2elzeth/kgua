@@ -10,7 +10,7 @@ class Staff(models.Model):
     image = models.ImageField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.full_name}: {self.short_position}'
+        return f"{self.full_name}: {self.short_position}"
 
 
 class AdditionalData(models.Model):
@@ -24,9 +24,11 @@ class StaffAdditionalData(models.Model):
     staff = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="additionals"
     )
-    additional_data = models.ForeignKey(AdditionalData, on_delete=models.CASCADE, related_name='additionals')
+    additional_data = models.ForeignKey(
+        AdditionalData, on_delete=models.CASCADE, related_name="additionals"
+    )
     content = models.TextField()
 
     class Meta:
-        verbose_name = _('Дополнительная информация')
-        verbose_name_plural = _('Дополнительная информация')
+        verbose_name = _("Дополнительная информация")
+        verbose_name_plural = _("Дополнительная информация")
