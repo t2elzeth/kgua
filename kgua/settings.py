@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "authorization",
     "news",
     "staff",
+    "documents",
 ]
 
 MIDDLEWARE = [

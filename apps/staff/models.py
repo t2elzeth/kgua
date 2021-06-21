@@ -32,3 +32,13 @@ class StaffAdditionalData(models.Model):
     class Meta:
         verbose_name = _("Дополнительная информация")
         verbose_name_plural = _("Дополнительная информация")
+
+
+class Vacancy(models.Model):
+    title = models.CharField(max_length=255)
+    body = models.TextField()
+    salary = models.CharField(max_length=255)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
