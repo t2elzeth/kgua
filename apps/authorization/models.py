@@ -43,3 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         if perm == "news.view_news":
             return False
         return super().has_perm(perm, obj)
+
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'

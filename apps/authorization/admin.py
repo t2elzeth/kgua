@@ -8,18 +8,17 @@ from . import models
 class UserAdmin(BaseUserAdmin):
     ordering = ("is_staff",)
 
-    list_display = ("email",)
+    list_display = ("username",)
 
     list_filter = ("is_staff",)
 
     readonly_fields = ("id", "is_superuser", "is_staff")
     add_fieldsets = (
-        ("Personal data", {"fields": ("first_name", "last_name")}),
         (
             "Authentication data",
             {
                 "classes": ("wide",),
-                "fields": ("email", "password1", "password2"),
+                "fields": ("username", "password1", "password2"),
             },
         ),
     )
@@ -30,8 +29,6 @@ class UserAdmin(BaseUserAdmin):
             {
                 "fields": (
                     "id",
-                    "first_name",
-                    "last_name",
                     "email",
                     "is_superuser",
                     "is_staff",
