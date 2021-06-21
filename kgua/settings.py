@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "news",
     "staff",
     "documents",
+    'kgua_life'
 ]
 
 MIDDLEWARE = [

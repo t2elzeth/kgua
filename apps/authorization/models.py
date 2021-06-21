@@ -40,11 +40,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def logout(self):
         Token.objects.filter(user=self).delete()
 
-    def has_perm(self, perm, obj=None):
-        if perm == "news.view_news":
-            return False
-        return super().has_perm(perm, obj)
-
     class Meta:
         verbose_name = _("Пользователь")
         verbose_name_plural = _("Пользователи")
