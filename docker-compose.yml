@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: ${PROJECT_NAME}Web
+    volumes:
+      - staticfiles:/app/staticfiles
+      - mediafiles:/app/mediafiles
+    environment:
+      DJANGO_SETTINGS_FOLDER: kgua
+
+  nginx:
+    image: nginx
+    container_name: ${PROJECT_NAME}Nginx
+    ports:
+      - "8920:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - staticfiles:/app/static
+      - mediafiles:/app/media
+    depends_on:
+      - web
+
+
+volumes:
+  staticfiles:
+    name: ${PROJECT_NAME}Staticfiles
+
+  mediafiles:
+    name: ${PROJECT_NAME}Mediafiles
