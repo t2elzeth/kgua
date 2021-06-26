@@ -29,6 +29,7 @@ urlpatterns = [
     path("api/v1/", include("staff.urls")),
     path("api/v1/documents/", include("documents.urls")),
     path("api/v1/life/", include("kgua_life.urls")),
+    path("api/v1/international_cooperation/", include("international_cooperation.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
