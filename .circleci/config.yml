@@ -1,18 +1,17 @@
 version: 2.1
 
-# Define the jobs we want to run for this project
 jobs:
   pull-and-build:
     docker:
       - image: arvindr226/alpine-ssh
+    machine:
+      enabled: true
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "47:12:66:f8:a9:9a:97:37:b0:d8:24:71:18:c1:a7:91"
-      - run: ssh t2elzeth@134.0.116.226 "./deploy.sh"
+      - run:
+          name: Deploy over SSH
+          command: ssh $SSH_USER@$SSH_HOST "./deploy.sh"
 
-# Orchestrate our job run sequence
 workflows:
   version: 2
   build-project:
