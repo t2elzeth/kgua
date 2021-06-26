@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Deploy over SSH
-          command: ssh -oStrictHostKeyChecking=no -v $SSH_USER@$SSH_HOST ./kgua/backend/.circleci/deploy.sh
+          command: ssh -oStrictHostKeyChecking=no -v $SSH_USER@$SSH_HOST /home/t2elzeth/kgua/backend/.circleci/deploy.sh
 
 workflows:
   version: 2
