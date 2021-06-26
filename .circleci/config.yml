@@ -4,8 +4,6 @@ jobs:
   pull-and-build:
     docker:
       - image: arvindr226/alpine-ssh
-    machine:
-      enabled: true
     steps:
       - checkout
       - run:
