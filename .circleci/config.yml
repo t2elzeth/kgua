@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   pull-and-build:
     docker:
-      - image: cimg/base
+      - image: cimg/base:2021.05
     steps:
       - checkout
       - run:
