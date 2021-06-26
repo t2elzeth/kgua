@@ -8,8 +8,8 @@ class InternationalEvent(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Международное мероприятие'
-        verbose_name_plural = 'Международные мероприятия'
+        verbose_name = "Международное мероприятие"
+        verbose_name_plural = "Международные мероприятия"
 
 
 class InternationalProgram(models.Model):
@@ -19,8 +19,8 @@ class InternationalProgram(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Международная программа'
-        verbose_name_plural = 'Международные программы'
+        verbose_name = "Международная программа"
+        verbose_name_plural = "Международные программы"
 
 
 class PartnerOrganization(models.Model):
@@ -30,5 +30,5 @@ class PartnerOrganization(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Организация-партнер'
-        verbose_name_plural = 'Организации-партнеры'
+        verbose_name = "Организация-партнер"
+        verbose_name_plural = "Организации-партнеры"

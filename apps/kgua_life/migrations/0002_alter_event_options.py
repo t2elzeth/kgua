@@ -6,12 +6,15 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('kgua_life', '0001_initial'),
+        ("kgua_life", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='event',
-            options={'verbose_name': 'Мероприятие', 'verbose_name_plural': 'Мероприятия'},
+            name="event",
+            options={
+                "verbose_name": "Мероприятие",
+                "verbose_name_plural": "Мероприятия",
+            },
         ),
     ]

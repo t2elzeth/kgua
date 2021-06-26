@@ -12,5 +12,5 @@ class Event(models.Model):
         return f"{self.title}: Active - {self.is_active}"
 
     class Meta:
-        verbose_name = 'Мероприятие'
-        verbose_name_plural = 'Мероприятия'
+        verbose_name = "Мероприятие"
+        verbose_name_plural = "Мероприятия"

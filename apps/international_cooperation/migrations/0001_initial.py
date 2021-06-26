@@ -7,41 +7,64 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='InternationalEvent',
+            name="InternationalEvent",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
             ],
             options={
-                'verbose_name': 'Международное мероприятие',
-                'verbose_name_plural': 'Международные мероприятия',
+                "verbose_name": "Международное мероприятие",
+                "verbose_name_plural": "Международные мероприятия",
             },
         ),
         migrations.CreateModel(
-            name='InternationalProgram',
+            name="InternationalProgram",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
             ],
             options={
-                'verbose_name': 'Международная программа',
-                'verbose_name_plural': 'Международные программы',
+                "verbose_name": "Международная программа",
+                "verbose_name_plural": "Международные программы",
             },
         ),
         migrations.CreateModel(
-            name='PartnerOrganization',
+            name="PartnerOrganization",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
             ],
             options={
-                'verbose_name': 'Организация-партнер',
-                'verbose_name_plural': 'Организации-партнеры',
+                "verbose_name": "Организация-партнер",
+                "verbose_name_plural": "Организации-партнеры",
             },
         ),
     ]
