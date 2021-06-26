@@ -1,8 +1,12 @@
 from rest_framework.generics import ListAPIView
 
-from .models import Charity, Event, Promotion, Jubilee
-from .serializers import (CharitySerializer, EventSerializer,
-                          PromotionSerializer, JubileeSerializer)
+from .models import Charity, Event, Jubilee, Promotion
+from .serializers import (
+    CharitySerializer,
+    EventSerializer,
+    JubileeSerializer,
+    PromotionSerializer,
+)
 
 
 class EventListAPIView(ListAPIView):
