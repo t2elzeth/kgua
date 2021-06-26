@@ -1,10 +1,6 @@
 from rest_framework import serializers
 
-from .models import (
-    InternationalEvent,
-    InternationalProgram,
-    PartnerOrganization,
-)
+from .models import InternationalEvent, InternationalProgram, PartnerOrganization
 
 
 class InternationalEventSerializer(serializers.ModelSerializer):
