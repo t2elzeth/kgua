@@ -36,3 +36,14 @@ class Charity(models.Model):
     class Meta:
         verbose_name = "Благотворительность"
         verbose_name_plural = "Благотворительность"
+
+
+class Jubilee(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Юбилей'
+        verbose_name_plural = 'Юбилеи'
