@@ -10,3 +10,7 @@ class Event(models.Model):
 
     def __str__(self):
         return f"{self.title}: Active - {self.is_active}"
+
+    class Meta:
+        verbose_name = 'Мероприятие'
+        verbose_name_plural = 'Мероприятия'
