@@ -1,6 +1,7 @@
-cd $HOME/kgua/backend || exit
-
 echo $(pwd)
+
+
+cd $HOME/kgua/backend || exit
 
 git pull origin master
 
