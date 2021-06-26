@@ -1,4 +1,5 @@
-cd /home/t2elzeth/kgua/backend || exit
+cd "$PROJECT_ROOT" || exit
+
 
 git pull origin master
 
