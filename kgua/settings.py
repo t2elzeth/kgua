@@ -12,7 +12,7 @@ SECRET_KEY = (
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -31,8 +31,8 @@ INSTALLED_APPS = [
     "news",
     "staff",
     "documents",
-    'kgua_life',
-    'international_cooperation',
+    "kgua_life",
+    "international_cooperation",
 ]
 
 MIDDLEWARE = [

@@ -7,7 +7,7 @@ from . import models
 class UserAdmin(BaseUserAdmin):
     ordering = ("is_staff",)
 
-    list_display = ("username", 'is_staff')
+    list_display = ("username", "is_staff")
 
     list_filter = ("is_staff",)
 
@@ -32,8 +32,8 @@ class UserAdmin(BaseUserAdmin):
                     "is_superuser",
                     "is_staff",
                     "is_active",
-                    'user_permissions',
-                    'groups'
+                    "user_permissions",
+                    "groups",
                 )
             },
         ),
