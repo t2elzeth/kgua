@@ -1,4 +1,4 @@
-cd /home/t2elzeth/kgua/backend || exit
+cd /home/t2elzeth/sanri/backend || exit
 
 git pull origin master
 
