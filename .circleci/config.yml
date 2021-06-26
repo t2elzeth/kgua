@@ -13,7 +13,7 @@ jobs:
                   -oStrictHostKeyChecking=no
                   -v
                   $SSH_USER@$SSH_HOST
-                  /home/t2elzeth/kgua/backend/.circleci/deploy.sh
+                  "sh /home/t2elzeth/kgua/backend/.circleci/deploy.sh"
 
 workflows:
   version: 2
