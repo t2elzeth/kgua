@@ -1,6 +1,10 @@
 from rest_framework.generics import ListAPIView
 
-from .models import InternationalEvent, InternationalProgram, PartnerOrganization
+from .models import (
+    InternationalEvent,
+    InternationalProgram,
+    PartnerOrganization,
+)
 from .serializers import (
     InternationalEventSerializer,
     InternationalProgramSerializer,
