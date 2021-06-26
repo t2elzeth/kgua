@@ -9,7 +9,7 @@ class InternationalEvent(models.Model):
 
     class Meta:
         verbose_name = "Международное мероприятие"
-        verbose_name_plural = "Международные мероприятияsssss"
+        verbose_name_plural = "Международные мероприятия"
 
 
 class InternationalProgram(models.Model):
