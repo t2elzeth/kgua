@@ -45,5 +45,5 @@ class Jubilee(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Юбилей'
-        verbose_name_plural = 'Юбилеи'
+        verbose_name = "Юбилей"
+        verbose_name_plural = "Юбилеи"

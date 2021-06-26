@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Charity, Event, Promotion, Jubilee
+from .models import Charity, Event, Jubilee, Promotion
 
 
 class EventSerializer(serializers.ModelSerializer):

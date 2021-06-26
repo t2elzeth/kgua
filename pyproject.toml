@@ -28,6 +28,7 @@ exclude = 'env/'
 line_length = 79
 
 [tool.isort]
+line_length = 79
 skip_gitignore = true
 
 [tool.autoflake]
