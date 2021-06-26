@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Deploy over SSH
-          run: ssh $SSH_USER@$SSH_HOST "./kgua/deploy.sh"
+          command: ssh $SSH_USER@$SSH_HOST "./kgua/deploy.sh"
 
 workflows:
   version: 2
