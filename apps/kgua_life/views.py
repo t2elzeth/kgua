@@ -1,12 +1,13 @@
 from rest_framework.generics import ListAPIView
 
-from .models import Charity, Event, Jubilee, Promotion, Mug, Club
+from .models import Charity, Club, Event, Jubilee, Mug, Promotion
 from .serializers import (
     CharitySerializer,
+    ClubSerializer,
     EventSerializer,
     JubileeSerializer,
+    MugSerializer,
     PromotionSerializer,
-MugSerializer, ClubSerializer
 )
 
 
@@ -36,6 +37,7 @@ class JubileeListAPIView(ListAPIView):
 
     queryset = Jubilee.objects.all()
     serializer_class = JubileeSerializer
+
 
 class MugListAPIView(ListAPIView):
     """Список кружков"""
