@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Charity, Event, Jubilee, Promotion
+from .models import Charity, Event, Jubilee, Promotion, Mug, Club
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -24,4 +24,16 @@ class CharitySerializer(serializers.ModelSerializer):
 class JubileeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Jubilee
+        fields = ["title"]
+
+
+class MugSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mug
+        fields = ["title"]
+
+
+class ClubSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Club
         fields = ["title"]

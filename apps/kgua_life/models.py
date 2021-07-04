@@ -47,3 +47,23 @@ class Jubilee(models.Model):
     class Meta:
         verbose_name = "Юбилей"
         verbose_name_plural = "Юбилеи"
+
+class Mug(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Кружок"
+        verbose_name_plural = "Кружки"
+
+class Club(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Клуб"
+        verbose_name_plural = "Клубы"
