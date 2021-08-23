@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
-
+from rest_framework import serializers
 
 class Staff(models.Model):
     full_name = models.CharField(max_length=255)
@@ -43,14 +43,43 @@ class StaffAdditionalData(models.Model):
 
 
 class Vacancy(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
-    salary = models.CharField(max_length=255)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return f"{self.ru.title} | {self.en.title} | {self.kg.title}"
 
     class Meta:
         verbose_name = _("Вакансия")
         verbose_name_plural = _("Вакансии")
+
+
+class VacancyAbstract(models.Model):
+    parent = NotImplemented
+    title = models.CharField(max_length=255)
+    body = models.TextField()
+    salary = models.CharField(max_length=255)
+
+    @classmethod
+    def get_serializer(cls):
+        class GenericSerializer(serializers.ModelSerializer):
+            class Meta:
+                model = cls
+                fields = ['title', 'body', 'salary']
+                ref_name = cls.__class__.__name__
+
+        return GenericSerializer(read_only=True)
+
+    class Meta:
+        abstract = True
+
+
+class VacancyRU(VacancyAbstract):
+    parent = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name='ru')
+
+
+class VacancyEN(VacancyAbstract):
+    parent = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name='en')
+
+
+class VacancyKG(VacancyAbstract):
+    parent = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name='kg')
