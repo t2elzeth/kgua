@@ -1,8 +1,7 @@
 from rest_framework import generics
 
-from .models import Staff, Vacancy
-from .serializers import (StaffDetailSerializer, StaffListSerializer,
-                          VacancySerializer)
+from .models import Staff
+from .serializers import (StaffDetailSerializer, StaffListSerializer)
 
 
 class StaffListAPIView(generics.ListAPIView):
@@ -16,8 +15,3 @@ class StaffListAPIView(generics.ListAPIView):
 class StaffDetailAPIView(generics.RetrieveAPIView):
     queryset = Staff.objects.all()
     serializer_class = StaffDetailSerializer
-
-
-class VacancyListAPIView(generics.ListAPIView):
-    queryset = Vacancy.objects.all().order_by("-id")
-    serializer_class = VacancySerializer

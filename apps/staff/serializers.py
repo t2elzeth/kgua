@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import AdditionalData, Staff, Vacancy, VacancyRU, VacancyKG, VacancyEN
+from .models import AdditionalData, Staff
 
 
 class StaffListSerializer(serializers.ModelSerializer):
@@ -35,13 +35,3 @@ class StaffDetailSerializer(serializers.ModelSerializer):
             "image",
             "additional_data",
         ]
-
-
-class VacancySerializer(serializers.ModelSerializer):
-    ru = VacancyRU.get_serializer()
-    kg = VacancyKG.get_serializer()
-    en = VacancyEN.get_serializer()
-
-    class Meta:
-        model = Vacancy
-        fields = ['ru', 'kg', 'en', 'date_created']
