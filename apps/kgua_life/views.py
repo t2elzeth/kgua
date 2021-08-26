@@ -1,7 +1,7 @@
 from rest_framework.generics import ListAPIView
 
-from .models import Charity, Club, Event, Jubilee, Mug, Promotion
-from .serializers import (CharitySerializer, ClubSerializer, EventSerializer,
+from .models import Charity, Event, Jubilee, Mug, Promotion
+from .serializers import (CharitySerializer, EventSerializer,
                           JubileeSerializer, MugSerializer,
                           PromotionSerializer)
 
@@ -39,10 +39,3 @@ class MugListAPIView(ListAPIView):
 
     queryset = Mug.objects.all()
     serializer_class = MugSerializer
-
-
-class ClubListAPIView(ListAPIView):
-    """Список клубов"""
-
-    queryset = Club.objects.all()
-    serializer_class = ClubSerializer

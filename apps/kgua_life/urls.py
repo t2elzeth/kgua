@@ -8,5 +8,4 @@ urlpatterns = [
     path("charities/", views.CharityListAPIView.as_view()),
     path("jubilees/", views.JubileeListAPIView.as_view()),
     path("mugs/", views.MugListAPIView.as_view()),
-    path("clubs/", views.ClubListAPIView.as_view()),
 ]
