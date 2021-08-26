@@ -1,8 +1,20 @@
 from django.contrib import admin
 
-from . import models
+from .models import News, NewsRU, NewsEN, NewsKG
 
 
-@admin.register(models.News)
+class NewsENInline(admin.StackedInline):
+    model = NewsEN
+
+
+class NewsRUInline(admin.StackedInline):
+    model = NewsRU
+
+
+class NewsKGInline(admin.StackedInline):
+    model = NewsKG
+
+
+@admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    pass
+    inlines = [NewsRUInline, NewsKGInline, NewsENInline]
