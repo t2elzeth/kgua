@@ -18,13 +18,17 @@ class MultilanguageModel(models.Model):
 class AbstractModelWithGenericSerializer(models.Model):
     fields: list[str] = NotImplemented
 
+    def __init_subclass__(cls, **kwargs):
+        print(cls)
+        return super().__init_subclass__(**kwargs)
+
     @classmethod
     def get_serializer(cls):
         class GenericSerializer(serializers.ModelSerializer):
             class Meta:
                 model = cls
                 fields = cls.fields
-                ref_name = cls.__class__.__name__
+                ref_name = cls.__name__
 
         return GenericSerializer(read_only=True)
 
