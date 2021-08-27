@@ -18,19 +18,25 @@ class NewsAbstract(AbstractModelWithGenericSerializer):
     description = models.TextField()
     image = models.ImageField()
 
-    fields = ['title', 'description', 'image']
+    fields = ["title", "description", "image"]
 
     class Meta:
         abstract = True
 
 
 class NewsRU(NewsAbstract):
-    parent = models.OneToOneField(News, on_delete=models.CASCADE, related_name='ru')
+    parent = models.OneToOneField(
+        News, on_delete=models.CASCADE, related_name="ru"
+    )
 
 
 class NewsEN(NewsAbstract):
-    parent = models.OneToOneField(News, on_delete=models.CASCADE, related_name='en')
+    parent = models.OneToOneField(
+        News, on_delete=models.CASCADE, related_name="en"
+    )
 
 
 class NewsKG(NewsAbstract):
-    parent = models.OneToOneField(News, on_delete=models.CASCADE, related_name='kg')
+    parent = models.OneToOneField(
+        News, on_delete=models.CASCADE, related_name="kg"
+    )

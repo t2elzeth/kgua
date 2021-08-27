@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Staff, StaffEN, StaffKG, StaffRU, StaffContacts, StaffContactEmail, StaffExperience
+from .models import (
+    Staff,
+    StaffEN,
+    StaffKG,
+    StaffRU,
+    StaffContacts,
+    StaffContactEmail,
+    StaffExperience,
+    StaffEducation,
+)
 from .forms import StaffContactsForm
 
 
@@ -28,9 +37,22 @@ class StaffExperienceInline(admin.StackedInline):
     model = StaffExperience
 
 
+class StaffEducationInline(admin.StackedInline):
+    model = StaffEducation
+    extra = 0
+
+
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
-    inlines = [StaffRUInline, StaffKGInline, StaffENInline, StaffContactsInline, StaffExperienceInline]
+    inlines = [
+        StaffRUInline,
+        StaffKGInline,
+        StaffENInline,
+        StaffContactsInline,
+        StaffExperienceInline,
+        StaffEducationInline,
+    ]
+
 
 # @admin.register(StaffContacts)
 # class StaffContactsAdmin(admin.ModelAdmin):

@@ -17,19 +17,25 @@ class VacancyAbstract(AbstractModelWithGenericSerializer):
     body = models.TextField()
     salary = models.CharField(max_length=255)
 
-    fields = ['title', 'body', 'salary']
+    fields = ["title", "body", "salary"]
 
     class Meta:
         abstract = True
 
 
 class VacancyRU(VacancyAbstract):
-    parent = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name='ru')
+    parent = models.OneToOneField(
+        Vacancy, on_delete=models.CASCADE, related_name="ru"
+    )
 
 
 class VacancyEN(VacancyAbstract):
-    parent = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name='en')
+    parent = models.OneToOneField(
+        Vacancy, on_delete=models.CASCADE, related_name="en"
+    )
 
 
 class VacancyKG(VacancyAbstract):
-    parent = models.OneToOneField(Vacancy, on_delete=models.CASCADE, related_name='kg')
+    parent = models.OneToOneField(
+        Vacancy, on_delete=models.CASCADE, related_name="kg"
+    )

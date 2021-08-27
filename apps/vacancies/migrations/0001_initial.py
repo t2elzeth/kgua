@@ -8,58 +8,110 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Vacancy',
+            name="Vacancy",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date_created', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date_created", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Вакансия',
-                'verbose_name_plural': 'Вакансии',
+                "verbose_name": "Вакансия",
+                "verbose_name_plural": "Вакансии",
             },
         ),
         migrations.CreateModel(
-            name='VacancyRU',
+            name="VacancyRU",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('body', models.TextField()),
-                ('salary', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='ru', to='vacancies.vacancy')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("body", models.TextField()),
+                ("salary", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="ru",
+                        to="vacancies.vacancy",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='VacancyKG',
+            name="VacancyKG",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('body', models.TextField()),
-                ('salary', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='kg', to='vacancies.vacancy')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("body", models.TextField()),
+                ("salary", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="kg",
+                        to="vacancies.vacancy",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='VacancyEN',
+            name="VacancyEN",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('body', models.TextField()),
-                ('salary', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='en', to='vacancies.vacancy')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("body", models.TextField()),
+                ("salary", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="en",
+                        to="vacancies.vacancy",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

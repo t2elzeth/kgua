@@ -1,12 +1,21 @@
 from rest_framework import serializers
 
-from .models import Staff, StaffRU, StaffKG, StaffEN, StaffContacts, StaffContactEmail, StaffExperience
+from .models import (
+    Staff,
+    StaffRU,
+    StaffKG,
+    StaffEN,
+    StaffContacts,
+    StaffContactEmail,
+    StaffExperience,
+    StaffEducation,
+)
 
 
 class StaffContactEmailSerializer(serializers.ModelSerializer):
     class Meta:
         model = StaffContactEmail
-        fields = ['personal', 'corporate']
+        fields = ["personal", "corporate"]
 
 
 class StaffContactsSerializer(serializers.ModelSerializer):
@@ -14,13 +23,19 @@ class StaffContactsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = StaffContacts
-        fields = ['phone', 'email']
+        fields = ["phone", "email"]
 
 
 class StaffExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = StaffExperience
-        fields = ['overall', 'pedagogical']
+        fields = ["overall", "pedagogical"]
+
+
+class StaffEducationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StaffEducation
+        fields = ["from_year", "to_year", "description"]
 
 
 class StaffSerializer(serializers.ModelSerializer):
@@ -29,7 +44,17 @@ class StaffSerializer(serializers.ModelSerializer):
     en = StaffEN.get_serializer()
     contacts = StaffContactsSerializer()
     experience = StaffExperience()
+    education = StaffEducationSerializer(many=True)
 
     class Meta:
         model = Staff
-        fields = ('id', 'ru', 'kg', 'en', 'contacts', 'date_created', 'experience')
+        fields = (
+            "id",
+            "ru",
+            "kg",
+            "en",
+            "contacts",
+            "date_created",
+            "experience",
+            "education",
+        )

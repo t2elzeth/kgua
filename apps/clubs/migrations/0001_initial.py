@@ -8,60 +8,112 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Club',
+            name="Club",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Клуб',
-                'verbose_name_plural': 'Клубы',
+                "verbose_name": "Клуб",
+                "verbose_name_plural": "Клубы",
             },
         ),
         migrations.CreateModel(
-            name='ClubRU',
+            name="ClubRU",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('description', models.TextField()),
-                ('supervisor', models.CharField(max_length=255)),
-                ('phone', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='ru', to='clubs.club')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("description", models.TextField()),
+                ("supervisor", models.CharField(max_length=255)),
+                ("phone", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="ru",
+                        to="clubs.club",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='ClubKG',
+            name="ClubKG",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('description', models.TextField()),
-                ('supervisor', models.CharField(max_length=255)),
-                ('phone', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='kg', to='clubs.club')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("description", models.TextField()),
+                ("supervisor", models.CharField(max_length=255)),
+                ("phone", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="kg",
+                        to="clubs.club",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='ClubEN',
+            name="ClubEN",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('description', models.TextField()),
-                ('supervisor', models.CharField(max_length=255)),
-                ('phone', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='en', to='clubs.club')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("description", models.TextField()),
+                ("supervisor", models.CharField(max_length=255)),
+                ("phone", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="en",
+                        to="clubs.club",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

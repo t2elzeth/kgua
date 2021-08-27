@@ -16,19 +16,25 @@ class Department(MultilanguageModel):
 class DepartmentAbstract(AbstractModelWithGenericSerializer):
     title = models.CharField(max_length=255)
 
-    fields = ['title']
+    fields = ["title"]
 
     class Meta:
         abstract = True
 
 
 class DepartmentRU(DepartmentAbstract):
-    parent = models.OneToOneField(Department, on_delete=models.CASCADE, related_name='ru')
+    parent = models.OneToOneField(
+        Department, on_delete=models.CASCADE, related_name="ru"
+    )
 
 
 class DepartmentEN(DepartmentAbstract):
-    parent = models.OneToOneField(Department, on_delete=models.CASCADE, related_name='en')
+    parent = models.OneToOneField(
+        Department, on_delete=models.CASCADE, related_name="en"
+    )
 
 
 class DepartmentKG(DepartmentAbstract):
-    parent = models.OneToOneField(Department, on_delete=models.CASCADE, related_name='kg')
+    parent = models.OneToOneField(
+        Department, on_delete=models.CASCADE, related_name="kg"
+    )

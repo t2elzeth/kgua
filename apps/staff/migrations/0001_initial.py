@@ -9,82 +9,187 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('department', '0001_initial'),
+        ("department", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Staff',
+            name="Staff",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('date_created', models.DateTimeField(auto_now_add=True)),
-                ('department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='teachers', to='department.department')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("date_created", models.DateTimeField(auto_now_add=True)),
+                (
+                    "department",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="teachers",
+                        to="department.department",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Вакансия',
-                'verbose_name_plural': 'Вакансии',
+                "verbose_name": "Вакансия",
+                "verbose_name_plural": "Вакансии",
             },
         ),
         migrations.CreateModel(
-            name='StaffRU',
+            name="StaffRU",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.CharField(max_length=255)),
-                ('role', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='ru', to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("full_name", models.CharField(max_length=255)),
+                ("role", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="ru",
+                        to="staff.staff",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffKG',
+            name="StaffKG",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.CharField(max_length=255)),
-                ('role', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='kg', to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("full_name", models.CharField(max_length=255)),
+                ("role", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="kg",
+                        to="staff.staff",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffExperience',
+            name="StaffExperience",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('overall', models.IntegerField()),
-                ('pedagogical', models.IntegerField()),
-                ('staff', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='experience', to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("overall", models.IntegerField()),
+                ("pedagogical", models.IntegerField()),
+                (
+                    "staff",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="experience",
+                        to="staff.staff",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='StaffEN',
+            name="StaffEN",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.CharField(max_length=255)),
-                ('role', models.CharField(max_length=255)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='en', to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("full_name", models.CharField(max_length=255)),
+                ("role", models.CharField(max_length=255)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="en",
+                        to="staff.staff",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffContacts',
+            name="StaffContacts",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('phone', models.CharField(max_length=255)),
-                ('staff', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='contacts', to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("phone", models.CharField(max_length=255)),
+                (
+                    "staff",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="contacts",
+                        to="staff.staff",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='StaffContactEmail',
+            name="StaffContactEmail",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('corporate', models.EmailField(max_length=254)),
-                ('personal', models.EmailField(max_length=254)),
-                ('contact', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='email', to='staff.staffcontacts')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("corporate", models.EmailField(max_length=254)),
+                ("personal", models.EmailField(max_length=254)),
+                (
+                    "contact",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="email",
+                        to="staff.staffcontacts",
+                    ),
+                ),
             ],
         ),
     ]

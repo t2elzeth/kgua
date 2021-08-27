@@ -10,4 +10,4 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Department
-        fields = ['ru', 'kg', 'en', 'date_created']
+        fields = ["ru", "kg", "en", "date_created"]

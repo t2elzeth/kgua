@@ -31,4 +31,3 @@ class MugSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mug
         fields = ["title"]
-

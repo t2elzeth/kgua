@@ -17,19 +17,25 @@ class ClubAbstract(AbstractModelWithGenericSerializer):
     supervisor = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
 
-    fields = ['title', 'description', 'supervisor', 'phone']
+    fields = ["title", "description", "supervisor", "phone"]
 
     class Meta:
         abstract = True
 
 
 class ClubRU(ClubAbstract):
-    parent = models.OneToOneField(Club, on_delete=models.CASCADE, related_name='ru')
+    parent = models.OneToOneField(
+        Club, on_delete=models.CASCADE, related_name="ru"
+    )
 
 
 class ClubEN(ClubAbstract):
-    parent = models.OneToOneField(Club, on_delete=models.CASCADE, related_name='en')
+    parent = models.OneToOneField(
+        Club, on_delete=models.CASCADE, related_name="en"
+    )
 
 
 class ClubKG(ClubAbstract):
-    parent = models.OneToOneField(Club, on_delete=models.CASCADE, related_name='kg')
+    parent = models.OneToOneField(
+        Club, on_delete=models.CASCADE, related_name="kg"
+    )

@@ -10,7 +10,7 @@ class ClubSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Club
-        fields = ['ru', 'kg', 'en']
+        fields = ["ru", "kg", "en"]
 
     # def get_field_names(self, declared_fields, info):
     #     res = super().get_field_names(declared_fields, info)

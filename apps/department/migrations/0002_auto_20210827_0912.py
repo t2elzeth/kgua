@@ -6,36 +6,39 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('department', '0001_initial'),
+        ("department", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='department',
-            options={'verbose_name': 'Кафедра', 'verbose_name_plural': 'Кафедры'},
+            name="department",
+            options={
+                "verbose_name": "Кафедра",
+                "verbose_name_plural": "Кафедры",
+            },
         ),
         migrations.RemoveField(
-            model_name='departmenten',
-            name='body',
+            model_name="departmenten",
+            name="body",
         ),
         migrations.RemoveField(
-            model_name='departmenten',
-            name='salary',
+            model_name="departmenten",
+            name="salary",
         ),
         migrations.RemoveField(
-            model_name='departmentkg',
-            name='body',
+            model_name="departmentkg",
+            name="body",
         ),
         migrations.RemoveField(
-            model_name='departmentkg',
-            name='salary',
+            model_name="departmentkg",
+            name="salary",
         ),
         migrations.RemoveField(
-            model_name='departmentru',
-            name='body',
+            model_name="departmentru",
+            name="body",
         ),
         migrations.RemoveField(
-            model_name='departmentru',
-            name='salary',
+            model_name="departmentru",
+            name="salary",
         ),
     ]

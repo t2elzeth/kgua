@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "international_cooperation",
     "clubs",
     "vacancies",
-    'department'
+    "department",
 ]
 
 MIDDLEWARE = [
