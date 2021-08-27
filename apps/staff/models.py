@@ -8,6 +8,8 @@ class Staff(MultilanguageModel):
     date_created = models.DateTimeField(auto_now_add=True)
     department = models.ForeignKey('department.Department', on_delete=models.CASCADE, related_name='teachers')
 
+    repr_key = "full_name"
+
     class Meta:
         verbose_name = _("Преподователь")
         verbose_name_plural = _("Преподователи")

@@ -6,18 +6,17 @@ from django.utils.translation import gettext as _
 
 class Department(MultilanguageModel):
     date_created = models.DateTimeField(auto_now_add=True)
+    repr_key = "title"
 
     class Meta:
-        verbose_name = _("Вакансия")
-        verbose_name_plural = _("Вакансии")
+        verbose_name = _("Кафедра")
+        verbose_name_plural = _("Кафедры")
 
 
 class DepartmentAbstract(AbstractModelWithGenericSerializer):
     title = models.CharField(max_length=255)
-    body = models.TextField()
-    salary = models.CharField(max_length=255)
 
-    fields = ['title', 'body', 'salary']
+    fields = ['title']
 
     class Meta:
         abstract = True
