@@ -5,5 +5,10 @@ from .serializers import StaffSerializer
 
 
 class StaffListAPIView(generics.ListAPIView):
-    queryset = Staff.objects.all().order_by("-id")
+    queryset = Staff.objects.all()
+    serializer_class = StaffSerializer
+
+
+class StaffDetailAPIView(generics.RetrieveAPIView):
+    queryset = Staff.objects.all()
     serializer_class = StaffSerializer
