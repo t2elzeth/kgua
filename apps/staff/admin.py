@@ -1,11 +1,20 @@
 from django.contrib import admin
 
-from .models import AdditionalData, Staff, StaffAdditionalData
+from .models import Staff, StaffEN, StaffKG, StaffRU
 
 
-class StaffAdditionalDataInline(admin.StackedInline):
-    model = StaffAdditionalData
-    extra = 0
+class StaffENInline(admin.StackedInline):
+    model = StaffEN
 
 
-admin.site.register(AdditionalData)
+class StaffRUInline(admin.StackedInline):
+    model = StaffRU
+
+
+class StaffKGInline(admin.StackedInline):
+    model = StaffKG
+
+
+@admin.register(Staff)
+class StaffAdmin(admin.ModelAdmin):
+    inlines = [StaffRUInline, StaffKGInline, StaffENInline]

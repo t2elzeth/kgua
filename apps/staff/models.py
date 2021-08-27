@@ -1,43 +1,52 @@
 from django.db import models
+
+from utils.models import MultilanguageModel, AbstractModelWithGenericSerializer
 from django.utils.translation import gettext as _
-from rest_framework import serializers
 
-class Staff(models.Model):
+
+class Staff(MultilanguageModel):
+    date_created = models.DateTimeField(auto_now_add=True)
+    department = models.ForeignKey('department.Department', on_delete=models.CASCADE, related_name='teachers')
+
+    class Meta:
+        verbose_name = _("Преподователь")
+        verbose_name_plural = _("Преподователи")
+
+
+class StaffContacts(models.Model):
+    staff = models.OneToOneField('Staff', on_delete=models.CASCADE, related_name='contacts')
+    phone = models.CharField(max_length=255)
+
+
+class StaffContactEmail(models.Model):
+    contact = models.OneToOneField('StaffContacts', on_delete=models.CASCADE, related_name='email')
+    corporate = models.EmailField()
+    personal = models.EmailField()
+
+
+class StaffExperience(models.Model):
+    staff = models.OneToOneField('Staff', on_delete=models.CASCADE, related_name='experience')
+    overall = models.IntegerField()
+    pedagogical = models.IntegerField()
+
+
+class StaffAbstract(AbstractModelWithGenericSerializer):
     full_name = models.CharField(max_length=255)
-    short_position = models.CharField(max_length=255)
-    full_position = models.CharField(max_length=255)
-    experience = models.CharField(max_length=255)
-    image = models.ImageField(blank=True, null=True)
+    role = models.CharField(max_length=255)
 
-    def __str__(self):
-        return f"{self.full_name}: {self.short_position}"
+    fields = ['full_name', 'role']
 
     class Meta:
-        verbose_name = _("Персонал")
-        verbose_name_plural = _("Персонал")
+        abstract = True
 
 
-class AdditionalData(models.Model):
-    title = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = _("Дополнительная информация персонала")
-        verbose_name_plural = _("Дополнительные информации персонала")
+class StaffRU(StaffAbstract):
+    parent = models.OneToOneField(Staff, on_delete=models.CASCADE, related_name='ru')
 
 
-class StaffAdditionalData(models.Model):
-    staff = models.ForeignKey(
-        Staff, on_delete=models.CASCADE, related_name="additionals"
-    )
-    additional_data = models.ForeignKey(
-        AdditionalData, on_delete=models.CASCADE, related_name="additionals"
-    )
-    content = models.TextField()
+class StaffEN(StaffAbstract):
+    parent = models.OneToOneField(Staff, on_delete=models.CASCADE, related_name='en')
 
-    class Meta:
-        verbose_name = _("Дополнительная информация")
-        verbose_name_plural = _("Дополнительная информация")
 
+class StaffKG(StaffAbstract):
+    parent = models.OneToOneField(Staff, on_delete=models.CASCADE, related_name='kg')
