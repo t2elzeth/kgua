@@ -22,17 +22,11 @@ class StaffContactsInline(admin.StackedInline):
     classes = ["collapse"]
     can_delete = False
 
-    class Media:
-        css = {"all": ("admin_inline.css",)}
-
 
 class StaffExperienceInline(admin.StackedInline):
     model = StaffExperience
     can_delete = False
     classes = ["collapse"]
-
-    class Media:
-        css = {"all": ("admin_inline.css",)}
 
 
 class StaffEducationInline(TranslationStackedInline):
@@ -56,7 +50,6 @@ class StaffScientificWorksInline(TranslationStackedInline):
 class MultilanguageModelAdmin(TranslationAdmin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
 
     # def get_fieldsets(self, request, obj=None):
     #     fieldset_dict = {
@@ -93,5 +86,3 @@ class StaffAdmin(MultilanguageModelAdmin):
             'fields': ('role_ru', 'role_en', 'role_ky')
         }),
     )
-    # class Media:
-    #     css = {"all": ("admin_inline.css",)}
