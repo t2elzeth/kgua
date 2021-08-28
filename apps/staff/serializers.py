@@ -9,6 +9,9 @@ from .models import (
     StaffContactEmail,
     StaffExperience,
     StaffEducation,
+StaffEducationRU,
+StaffEducationEN,
+StaffEducationKG
 )
 
 
@@ -33,9 +36,13 @@ class StaffExperienceSerializer(serializers.ModelSerializer):
 
 
 class StaffEducationSerializer(serializers.ModelSerializer):
+    ru = StaffEducationRU.get_serializer()
+    kg = StaffEducationKG.get_serializer()
+    en = StaffEducationEN.get_serializer()
+
     class Meta:
         model = StaffEducation
-        fields = ["from_year", "to_year", "description"]
+        fields = ["from_year", "to_year", "ru", "en", "kg"]
 
 
 class StaffSerializer(serializers.ModelSerializer):

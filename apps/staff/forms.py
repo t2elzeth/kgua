@@ -1,5 +1,5 @@
 from django import forms
-from .models import StaffContacts, StaffContactEmail
+from .models import StaffContacts, StaffContactEmail, StaffEducation
 
 
 class StaffContactsForm(forms.ModelForm):
@@ -37,3 +37,10 @@ class StaffContactsForm(forms.ModelForm):
     class Meta:
         model = StaffContacts
         fields = ["phone", "personal_email", "corporate_email"]
+
+
+class StaffEducationInlineForm(forms.ModelForm):
+    class Meta:
+        model = StaffEducation
+        fields = []
+
