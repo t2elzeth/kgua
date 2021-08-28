@@ -5,46 +5,46 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0012_auto_20210828_0934'),
+        ("staff", "0012_auto_20210828_0934"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='staffeducationkg',
-            name='parent',
+            model_name="staffeducationkg",
+            name="parent",
         ),
         migrations.RemoveField(
-            model_name='staffeducationru',
-            name='parent',
+            model_name="staffeducationru",
+            name="parent",
         ),
         migrations.AddField(
-            model_name='staffeducation',
-            name='description',
+            model_name="staffeducation",
+            name="description",
             field=models.TextField(default=1),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='staffeducation',
-            name='description_en',
+            model_name="staffeducation",
+            name="description_en",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='staffeducation',
-            name='description_ky',
+            model_name="staffeducation",
+            name="description_ky",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='staffeducation',
-            name='description_ru',
+            model_name="staffeducation",
+            name="description_ru",
             field=models.TextField(null=True),
         ),
         migrations.DeleteModel(
-            name='StaffEducationEN',
+            name="StaffEducationEN",
         ),
         migrations.DeleteModel(
-            name='StaffEducationKG',
+            name="StaffEducationKG",
         ),
         migrations.DeleteModel(
-            name='StaffEducationRU',
+            name="StaffEducationRU",
         ),
     ]

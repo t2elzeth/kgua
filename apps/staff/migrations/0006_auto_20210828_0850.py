@@ -6,110 +6,178 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0005_stafftraining_stafftrainingen_stafftrainingkg_stafftrainingru'),
+        (
+            "staff",
+            "0005_stafftraining_stafftrainingen_stafftrainingkg_stafftrainingru",
+        ),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='StaffScientificWorks',
+            name="StaffScientificWorks",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('release_date', models.DateField()),
-                ('link', models.URLField(blank=True, null=True)),
-                ('staff',
-                 models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='scientific_works',
-                                   to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("release_date", models.DateField()),
+                ("link", models.URLField(blank=True, null=True)),
+                (
+                    "staff",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="scientific_works",
+                        to="staff.staff",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Повышение квалификации',
-                'verbose_name_plural': 'Повышения квалификации',
+                "verbose_name": "Повышение квалификации",
+                "verbose_name_plural": "Повышения квалификации",
             },
         ),
         migrations.AlterModelOptions(
-            name='staffcontacts',
-            options={'verbose_name': 'Контакты'},
+            name="staffcontacts",
+            options={"verbose_name": "Контакты"},
         ),
         migrations.AlterModelOptions(
-            name='staffeducation',
-            options={'verbose_name': 'Образование', 'verbose_name_plural': 'Образования'},
+            name="staffeducation",
+            options={
+                "verbose_name": "Образование",
+                "verbose_name_plural": "Образования",
+            },
         ),
         migrations.AlterModelOptions(
-            name='staffen',
-            options={'verbose_name': 'Информация о преподователе на английском'},
+            name="staffen",
+            options={
+                "verbose_name": "Информация о преподователе на английском"
+            },
         ),
         migrations.AlterModelOptions(
-            name='staffexperience',
-            options={'verbose_name': 'Стаж'},
+            name="staffexperience",
+            options={"verbose_name": "Стаж"},
         ),
         migrations.AlterModelOptions(
-            name='staffkg',
-            options={'verbose_name': 'Информация о преподователе на кыргызском'},
+            name="staffkg",
+            options={
+                "verbose_name": "Информация о преподователе на кыргызском"
+            },
         ),
         migrations.AlterModelOptions(
-            name='staffru',
-            options={'verbose_name': 'Информация о преподователе на русском'},
+            name="staffru",
+            options={"verbose_name": "Информация о преподователе на русском"},
         ),
         migrations.AlterModelOptions(
-            name='stafftraining',
-            options={'verbose_name': 'Повышение квалификации', 'verbose_name_plural': 'Повышения квалификации'},
+            name="stafftraining",
+            options={
+                "verbose_name": "Повышение квалификации",
+                "verbose_name_plural": "Повышения квалификации",
+            },
         ),
         migrations.AlterField(
-            model_name='staffeducation',
-            name='from_year',
-            field=models.IntegerField(verbose_name='Начиная с'),
+            model_name="staffeducation",
+            name="from_year",
+            field=models.IntegerField(verbose_name="Начиная с"),
         ),
         migrations.AlterField(
-            model_name='staffeducation',
-            name='to_year',
-            field=models.IntegerField(verbose_name='До'),
+            model_name="staffeducation",
+            name="to_year",
+            field=models.IntegerField(verbose_name="До"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='from_year',
-            field=models.IntegerField(verbose_name='Начиная с'),
+            model_name="stafftraining",
+            name="from_year",
+            field=models.IntegerField(verbose_name="Начиная с"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='to_year',
-            field=models.IntegerField(verbose_name='До'),
+            model_name="stafftraining",
+            name="to_year",
+            field=models.IntegerField(verbose_name="До"),
         ),
         migrations.CreateModel(
-            name='StaffScientificWorksRU',
+            name="StaffScientificWorksRU",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=512)),
-                ('magazin_name', models.CharField(max_length=512)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='ru',
-                                                to='staff.staffscientificworks')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=512)),
+                ("magazin_name", models.CharField(max_length=512)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="ru",
+                        to="staff.staffscientificworks",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffScientificWorksKG',
+            name="StaffScientificWorksKG",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=512)),
-                ('magazin_name', models.CharField(max_length=512)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='kg',
-                                                to='staff.staffscientificworks')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=512)),
+                ("magazin_name", models.CharField(max_length=512)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="kg",
+                        to="staff.staffscientificworks",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffScientificWorksEN',
+            name="StaffScientificWorksEN",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=512)),
-                ('magazin_name', models.CharField(max_length=512)),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='en',
-                                                to='staff.staffscientificworks')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=512)),
+                ("magazin_name", models.CharField(max_length=512)),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="en",
+                        to="staff.staffscientificworks",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

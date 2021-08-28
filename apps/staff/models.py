@@ -26,7 +26,7 @@ class StaffContacts(models.Model):
     phone = models.CharField(max_length=255)
 
     class Meta:
-        verbose_name = 'Контакты'
+        verbose_name = "Контакты"
 
 
 class StaffContactEmail(models.Model):
@@ -45,7 +45,7 @@ class StaffExperience(models.Model):
     pedagogical = models.IntegerField()
 
     class Meta:
-        verbose_name = 'Стаж'
+        verbose_name = "Стаж"
 
 
 class StaffEducation(MultilanguageModel):
@@ -61,12 +61,14 @@ class StaffEducation(MultilanguageModel):
         return f"#{self.id}"
 
     class Meta:
-        verbose_name = 'Образование'
-        verbose_name_plural = 'Образования'
+        verbose_name = "Образование"
+        verbose_name_plural = "Образования"
 
 
 class StaffTraining(models.Model):
-    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name='trainings')
+    staff = models.ForeignKey(
+        Staff, on_delete=models.CASCADE, related_name="trainings"
+    )
     from_year = models.IntegerField(verbose_name="Начиная с")
     to_year = models.IntegerField(verbose_name="До")
     description = models.TextField(verbose_name="Описание")
@@ -75,12 +77,14 @@ class StaffTraining(models.Model):
         return f"Edu: of {self.staff} {self.from_year}-{self.to_year}"
 
     class Meta:
-        verbose_name = 'Повышение квалификации'
-        verbose_name_plural = 'Повышения квалификации'
+        verbose_name = "Повышение квалификации"
+        verbose_name_plural = "Повышения квалификации"
 
 
 class StaffScientificWorks(MultilanguageModel):
-    staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name='scientific_works')
+    staff = models.ForeignKey(
+        Staff, on_delete=models.CASCADE, related_name="scientific_works"
+    )
     release_date = models.DateField()
     link = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=512)
@@ -90,5 +94,5 @@ class StaffScientificWorks(MultilanguageModel):
         return f"SciWork: of {self.staff} {self.release_date}"
 
     class Meta:
-        verbose_name = 'Научный труд'
-        verbose_name_plural = 'Научные труды'
+        verbose_name = "Научный труд"
+        verbose_name_plural = "Научные труды"

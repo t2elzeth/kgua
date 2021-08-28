@@ -5,53 +5,53 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0008_auto_20210828_0905'),
+        ("staff", "0008_auto_20210828_0905"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='stafftraining',
-            name='from_year_en',
-            field=models.IntegerField(null=True, verbose_name='Начиная с'),
+            model_name="stafftraining",
+            name="from_year_en",
+            field=models.IntegerField(null=True, verbose_name="Начиная с"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='from_year_kg',
-            field=models.IntegerField(null=True, verbose_name='Начиная с'),
+            model_name="stafftraining",
+            name="from_year_kg",
+            field=models.IntegerField(null=True, verbose_name="Начиная с"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='from_year_ru',
-            field=models.IntegerField(null=True, verbose_name='Начиная с'),
+            model_name="stafftraining",
+            name="from_year_ru",
+            field=models.IntegerField(null=True, verbose_name="Начиная с"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='to_year_en',
-            field=models.IntegerField(null=True, verbose_name='До'),
+            model_name="stafftraining",
+            name="to_year_en",
+            field=models.IntegerField(null=True, verbose_name="До"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='to_year_kg',
-            field=models.IntegerField(null=True, verbose_name='До'),
+            model_name="stafftraining",
+            name="to_year_kg",
+            field=models.IntegerField(null=True, verbose_name="До"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='to_year_ru',
-            field=models.IntegerField(null=True, verbose_name='До'),
+            model_name="stafftraining",
+            name="to_year_ru",
+            field=models.IntegerField(null=True, verbose_name="До"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='en_description',
-            field=models.TextField(verbose_name='In english'),
+            model_name="stafftraining",
+            name="en_description",
+            field=models.TextField(verbose_name="In english"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='kg_description',
-            field=models.TextField(verbose_name='Кыргызча'),
+            model_name="stafftraining",
+            name="kg_description",
+            field=models.TextField(verbose_name="Кыргызча"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='ru_description',
-            field=models.TextField(verbose_name='На русском'),
+            model_name="stafftraining",
+            name="ru_description",
+            field=models.TextField(verbose_name="На русском"),
         ),
     ]

@@ -5,60 +5,60 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0009_auto_20210828_0915'),
+        ("staff", "0009_auto_20210828_0915"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='stafftraining',
-            old_name='ru_description',
-            new_name='description',
+            model_name="stafftraining",
+            old_name="ru_description",
+            new_name="description",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='en_description',
+            model_name="stafftraining",
+            name="en_description",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='from_year_en',
+            model_name="stafftraining",
+            name="from_year_en",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='from_year_kg',
+            model_name="stafftraining",
+            name="from_year_kg",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='from_year_ru',
+            model_name="stafftraining",
+            name="from_year_ru",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='kg_description',
+            model_name="stafftraining",
+            name="kg_description",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='to_year_en',
+            model_name="stafftraining",
+            name="to_year_en",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='to_year_kg',
+            model_name="stafftraining",
+            name="to_year_kg",
         ),
         migrations.RemoveField(
-            model_name='stafftraining',
-            name='to_year_ru',
+            model_name="stafftraining",
+            name="to_year_ru",
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='description_en',
-            field=models.TextField(null=True, verbose_name='На русском'),
+            model_name="stafftraining",
+            name="description_en",
+            field=models.TextField(null=True, verbose_name="На русском"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='description_kg',
-            field=models.TextField(null=True, verbose_name='На русском'),
+            model_name="stafftraining",
+            name="description_kg",
+            field=models.TextField(null=True, verbose_name="На русском"),
         ),
         migrations.AddField(
-            model_name='stafftraining',
-            name='description_ru',
-            field=models.TextField(null=True, verbose_name='На русском'),
+            model_name="stafftraining",
+            name="description_ru",
+            field=models.TextField(null=True, verbose_name="На русском"),
         ),
     ]

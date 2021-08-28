@@ -11,8 +11,13 @@ class MultilanguageField(serializers.Field):
         return instance
 
     def to_representation(self, obj):
-        translated_fields = [el for el in obj.__dict__.keys() if
-                             not el.startswith("__") and not el.endswith("__") and el.endswith(self.lang)]
+        translated_fields = [
+            el
+            for el in obj.__dict__.keys()
+            if not el.startswith("__")
+            and not el.endswith("__")
+            and el.endswith(self.lang)
+        ]
         res = {}
         for f in translated_fields:
             key = f.rsplit("_", 1)[0]

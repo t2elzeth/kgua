@@ -5,37 +5,37 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0013_auto_20210828_1109'),
+        ("staff", "0013_auto_20210828_1109"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='staffkg',
-            name='parent',
+            model_name="staffkg",
+            name="parent",
         ),
         migrations.RemoveField(
-            model_name='staffru',
-            name='parent',
+            model_name="staffru",
+            name="parent",
         ),
         migrations.AddField(
-            model_name='staff',
-            name='full_name',
+            model_name="staff",
+            name="full_name",
             field=models.CharField(default=1, max_length=512),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='staff',
-            name='role',
+            model_name="staff",
+            name="role",
             field=models.CharField(default=1, max_length=512),
             preserve_default=False,
         ),
         migrations.DeleteModel(
-            name='StaffEN',
+            name="StaffEN",
         ),
         migrations.DeleteModel(
-            name='StaffKG',
+            name="StaffKG",
         ),
         migrations.DeleteModel(
-            name='StaffRU',
+            name="StaffRU",
         ),
     ]

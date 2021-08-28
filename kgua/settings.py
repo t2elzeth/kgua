@@ -15,7 +15,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
-    'modeltranslation',
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -107,9 +107,7 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
@@ -125,7 +123,7 @@ DATETIME_FORMAT = "d M Y H:i:s"
 
 gettext = lambda s: s
 LANGUAGES = (
-    ('ru', gettext('Russian')),
-    ('en', gettext('English')),
-    ('ky', gettext('Kyrgyz')),
+    ("ru", gettext("Russian")),
+    ("en", gettext("English")),
+    ("ky", gettext("Kyrgyz")),
 )

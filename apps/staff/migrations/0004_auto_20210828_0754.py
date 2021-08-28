@@ -6,48 +6,90 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0003_staffeducation'),
+        ("staff", "0003_staffeducation"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='staffeducation',
-            name='description',
+            model_name="staffeducation",
+            name="description",
         ),
         migrations.CreateModel(
-            name='StaffEducationRU',
+            name="StaffEducationRU",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.TextField()),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='ru',
-                                                to='staff.staffeducation')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("description", models.TextField()),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="ru",
+                        to="staff.staffeducation",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffEducationKG',
+            name="StaffEducationKG",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.TextField()),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='kg',
-                                                to='staff.staffeducation')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("description", models.TextField()),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="kg",
+                        to="staff.staffeducation",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='StaffEducationEN',
+            name="StaffEducationEN",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.TextField()),
-                ('parent', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='en',
-                                                to='staff.staffeducation')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("description", models.TextField()),
+                (
+                    "parent",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="en",
+                        to="staff.staffeducation",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

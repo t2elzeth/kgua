@@ -5,38 +5,38 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0014_auto_20210828_1113'),
+        ("staff", "0014_auto_20210828_1113"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='staff',
-            name='full_name_en',
+            model_name="staff",
+            name="full_name_en",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staff',
-            name='full_name_ky',
+            model_name="staff",
+            name="full_name_ky",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staff',
-            name='full_name_ru',
+            model_name="staff",
+            name="full_name_ru",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staff',
-            name='role_en',
+            model_name="staff",
+            name="role_en",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staff',
-            name='role_ky',
+            model_name="staff",
+            name="role_ky",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staff',
-            name='role_ru',
+            model_name="staff",
+            name="role_ru",
             field=models.CharField(max_length=512, null=True),
         ),
     ]

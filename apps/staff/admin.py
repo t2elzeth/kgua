@@ -15,8 +15,10 @@ from .models import (
 class StaffContactsInline(admin.StackedInline):
     model = StaffContacts
     form = StaffContactsForm
-    fieldsets = ((None, {'fields': ['phone']}),
-                 ('Email', {'fields': ['personal_email', 'corporate_email']}))
+    fieldsets = (
+        (None, {"fields": ["phone"]}),
+        ("Email", {"fields": ["personal_email", "corporate_email"]}),
+    )
     classes = ["collapse"]
     can_delete = False
 
@@ -27,7 +29,7 @@ class StaffContactsInline(admin.StackedInline):
 class StaffExperienceInline(admin.StackedInline):
     model = StaffExperience
     can_delete = False
-    classes = ['collapse']
+    classes = ["collapse"]
 
     class Media:
         css = {"all": ("admin_inline.css",)}
@@ -36,19 +38,19 @@ class StaffExperienceInline(admin.StackedInline):
 class StaffEducationInline(TranslationStackedInline):
     model = StaffEducation
     extra = 0
-    classes = ['collapse']
+    classes = ["collapse"]
 
 
 class StaffTrainingInline(TranslationStackedInline):
     model = StaffTraining
     extra = 0
-    classes = ['collapse']
+    classes = ["collapse"]
 
 
 class StaffScientificWorksInline(TranslationStackedInline):
     model = StaffScientificWorks
     extra = 0
-    classes = ['collapse']
+    classes = ["collapse"]
 
 
 @admin.register(Staff)
@@ -58,7 +60,7 @@ class StaffAdmin(TranslationAdmin):
         StaffExperienceInline,
         StaffEducationInline,
         StaffTrainingInline,
-        StaffScientificWorksInline
+        StaffScientificWorksInline,
     ]
 
     # class Media:

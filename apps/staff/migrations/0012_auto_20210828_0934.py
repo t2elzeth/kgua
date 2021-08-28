@@ -5,87 +5,87 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('staff', '0011_rename_description_kg_stafftraining_description_ky'),
+        ("staff", "0011_rename_description_kg_stafftraining_description_ky"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='staffscientificworkskg',
-            name='parent',
+            model_name="staffscientificworkskg",
+            name="parent",
         ),
         migrations.RemoveField(
-            model_name='staffscientificworksru',
-            name='parent',
+            model_name="staffscientificworksru",
+            name="parent",
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='magazin_name',
+            model_name="staffscientificworks",
+            name="magazin_name",
             field=models.CharField(default=1, max_length=512),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='magazin_name_en',
+            model_name="staffscientificworks",
+            name="magazin_name_en",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='magazin_name_ky',
+            model_name="staffscientificworks",
+            name="magazin_name_ky",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='magazin_name_ru',
+            model_name="staffscientificworks",
+            name="magazin_name_ru",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='title',
+            model_name="staffscientificworks",
+            name="title",
             field=models.CharField(default=1, max_length=512),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='title_en',
+            model_name="staffscientificworks",
+            name="title_en",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='title_ky',
+            model_name="staffscientificworks",
+            name="title_ky",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='staffscientificworks',
-            name='title_ru',
+            model_name="staffscientificworks",
+            name="title_ru",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='description',
-            field=models.TextField(verbose_name='Описание'),
+            model_name="stafftraining",
+            name="description",
+            field=models.TextField(verbose_name="Описание"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='description_en',
-            field=models.TextField(null=True, verbose_name='Описание'),
+            model_name="stafftraining",
+            name="description_en",
+            field=models.TextField(null=True, verbose_name="Описание"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='description_ky',
-            field=models.TextField(null=True, verbose_name='Описание'),
+            model_name="stafftraining",
+            name="description_ky",
+            field=models.TextField(null=True, verbose_name="Описание"),
         ),
         migrations.AlterField(
-            model_name='stafftraining',
-            name='description_ru',
-            field=models.TextField(null=True, verbose_name='Описание'),
+            model_name="stafftraining",
+            name="description_ru",
+            field=models.TextField(null=True, verbose_name="Описание"),
         ),
         migrations.DeleteModel(
-            name='StaffScientificWorksEN',
+            name="StaffScientificWorksEN",
         ),
         migrations.DeleteModel(
-            name='StaffScientificWorksKG',
+            name="StaffScientificWorksKG",
         ),
         migrations.DeleteModel(
-            name='StaffScientificWorksRU',
+            name="StaffScientificWorksRU",
         ),
     ]
