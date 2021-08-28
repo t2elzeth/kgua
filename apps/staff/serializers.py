@@ -1,14 +1,13 @@
 from rest_framework import serializers
-from django.conf import settings
+
+from utils.serializers import MultilanguageModelSerializer
 from .models import (
     Staff,
     StaffContacts,
     StaffContactEmail,
-    StaffExperience,
     StaffEducation,
-StaffTraining
+    StaffTraining
 )
-from utils.serializers import MultilanguageModelSerializer
 
 
 class StaffContactEmailSerializer(serializers.ModelSerializer):

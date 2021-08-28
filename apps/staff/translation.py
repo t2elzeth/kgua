@@ -1,4 +1,5 @@
-from modeltranslation.translator import translator, TranslationOptions, register
+from modeltranslation.translator import TranslationOptions, register
+
 from .models import StaffTraining, StaffScientificWorks, StaffEducation, Staff
 
 
