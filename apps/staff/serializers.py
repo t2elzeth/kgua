@@ -11,7 +11,8 @@ from .models import (
     StaffEducation,
 StaffEducationRU,
 StaffEducationEN,
-StaffEducationKG
+StaffEducationKG,
+StaffTraining
 )
 
 
@@ -35,6 +36,12 @@ class StaffExperienceSerializer(serializers.ModelSerializer):
         fields = ["overall", "pedagogical"]
 
 
+class StaffTrainingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StaffTraining
+        fields = ['from_year', 'to_year', 'ru_description', 'en_description', 'kg_description']
+
+
 class StaffEducationSerializer(serializers.ModelSerializer):
     ru = StaffEducationRU.get_serializer()
     kg = StaffEducationKG.get_serializer()
@@ -52,6 +59,7 @@ class StaffSerializer(serializers.ModelSerializer):
     contacts = StaffContactsSerializer()
     experience = StaffExperience()
     education = StaffEducationSerializer(many=True)
+    trainings = StaffTrainingSerializer(many=True)
 
     class Meta:
         model = Staff
@@ -64,4 +72,5 @@ class StaffSerializer(serializers.ModelSerializer):
             "date_created",
             "experience",
             "education",
+            'trainings'
         )

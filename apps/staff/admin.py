@@ -12,9 +12,9 @@ from .models import (
     StaffEducationKG,
     StaffEducationRU,
     StaffTraining,
-    StaffTrainingEN,
-    StaffTrainingKG,
-    StaffTrainingRU,
+    # StaffTrainingEN,
+    # StaffTrainingKG,
+    # StaffTrainingRU,
     StaffScientificWorks,
     StaffScientificWorksEN,
     StaffScientificWorksRU,
@@ -69,10 +69,9 @@ class StaffEducationInline(admin.TabularInline):
     classes = ['collapse']
 
 
-class StaffTrainingInline(admin.TabularInline):
+class StaffTrainingInline(admin.StackedInline):
     model = StaffTraining
     extra = 0
-    show_change_link = True
     classes = ['collapse']
 
 
@@ -128,28 +127,28 @@ class StaffEducationAdmin(admin.ModelAdmin):
     def has_module_permission(self, request):
         return False
 
+#
+# class StaffTrainingENInline(admin.StackedInline):
+#     model = StaffTrainingEN
+#     can_delete = False
+#
+#
+# class StaffTrainingRUInline(admin.StackedInline):
+#     model = StaffTrainingRU
+#     can_delete = False
+#
+#
+# class StaffTrainingKGInline(admin.StackedInline):
+#     model = StaffTrainingKG
+#     can_delete = False
 
-class StaffTrainingENInline(admin.StackedInline):
-    model = StaffTrainingEN
-    can_delete = False
-
-
-class StaffTrainingRUInline(admin.StackedInline):
-    model = StaffTrainingRU
-    can_delete = False
-
-
-class StaffTrainingKGInline(admin.StackedInline):
-    model = StaffTrainingKG
-    can_delete = False
-
-
-@admin.register(StaffTraining)
-class StaffTrainingAdmin(admin.ModelAdmin):
-    inlines = [StaffTrainingRUInline, StaffTrainingKGInline, StaffTrainingENInline]
-
-    def has_module_permission(self, request):
-        return False
+#
+# @admin.register(StaffTraining)
+# class StaffTrainingAdmin(admin.ModelAdmin):
+#     inlines = [StaffTrainingRUInline, StaffTrainingKGInline, StaffTrainingENInline]
+#
+#     def has_module_permission(self, request):
+#         return False
 
 
 class StaffScientificWorksENInline(admin.StackedInline):

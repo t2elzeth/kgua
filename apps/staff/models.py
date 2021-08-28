@@ -127,10 +127,13 @@ class StaffKG(StaffAbstract):
         verbose_name = 'Информация о преподователе на кыргызском'
 
 
-class StaffTraining(MultilanguageModel):
+class StaffTraining(models.Model):
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name='trainings')
     from_year = models.IntegerField(verbose_name="Начиная с")
     to_year = models.IntegerField(verbose_name="До")
+    ru_description = models.TextField(verbose_name="На русском")
+    en_description = models.TextField(verbose_name="In english")
+    kg_description = models.TextField(verbose_name="Кыргызча")
 
     def __str__(self):
         return f"Edu: of {self.staff} {self.from_year}-{self.to_year}"
@@ -138,34 +141,6 @@ class StaffTraining(MultilanguageModel):
     class Meta:
         verbose_name = 'Повышение квалификации'
         verbose_name_plural = 'Повышения квалификации'
-
-
-class StaffTrainingAbstract(AbstractModelWithGenericSerializer):
-    description = models.TextField()
-
-    fields = ['description']
-
-    class Meta:
-        abstract = True
-
-
-class StaffTrainingRU(StaffTrainingAbstract):
-    parent = models.OneToOneField(
-        StaffTraining, on_delete=models.CASCADE, related_name="ru"
-    )
-
-
-class StaffTrainingEN(StaffTrainingAbstract):
-    parent = models.OneToOneField(
-        StaffTraining, on_delete=models.CASCADE, related_name="en"
-    )
-
-
-class StaffTrainingKG(StaffTrainingAbstract):
-    parent = models.OneToOneField(
-        StaffTraining, on_delete=models.CASCADE, related_name="kg"
-    )
-
 
 
 class StaffScientificWorks(MultilanguageModel):
