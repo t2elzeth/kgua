@@ -1,19 +1,14 @@
 from rest_framework import serializers
-
+from django.conf import settings
 from .models import (
     Staff,
-    StaffRU,
-    StaffKG,
-    StaffEN,
     StaffContacts,
     StaffContactEmail,
     StaffExperience,
     StaffEducation,
-StaffEducationRU,
-StaffEducationEN,
-StaffEducationKG,
 StaffTraining
 )
+from utils.serializers import MultilanguageModelSerializer
 
 
 class StaffContactEmailSerializer(serializers.ModelSerializer):
@@ -30,34 +25,21 @@ class StaffContactsSerializer(serializers.ModelSerializer):
         fields = ["phone", "email"]
 
 
-class StaffExperienceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = StaffExperience
-        fields = ["overall", "pedagogical"]
-
-
-class StaffTrainingSerializer(serializers.ModelSerializer):
+class StaffTrainingSerializer(MultilanguageModelSerializer):
     class Meta:
         model = StaffTraining
-        fields = ['from_year', 'to_year', 'ru_description', 'en_description', 'kg_description']
+        fields = ['from_year', 'to_year']
 
 
-class StaffEducationSerializer(serializers.ModelSerializer):
-    ru = StaffEducationRU.get_serializer()
-    kg = StaffEducationKG.get_serializer()
-    en = StaffEducationEN.get_serializer()
-
+class StaffEducationSerializer(MultilanguageModelSerializer):
     class Meta:
         model = StaffEducation
-        fields = ["from_year", "to_year", "ru", "en", "kg"]
+        fields = ["from_year", "to_year"]
 
 
-class StaffSerializer(serializers.ModelSerializer):
-    ru = StaffRU.get_serializer()
-    kg = StaffKG.get_serializer()
-    en = StaffEN.get_serializer()
+class StaffSerializer(MultilanguageModelSerializer):
     contacts = StaffContactsSerializer()
-    experience = StaffExperience()
+    # experience = StaffExperience()
     education = StaffEducationSerializer(many=True)
     trainings = StaffTrainingSerializer(many=True)
 
@@ -65,9 +47,6 @@ class StaffSerializer(serializers.ModelSerializer):
         model = Staff
         fields = (
             "id",
-            "ru",
-            "kg",
-            "en",
             "contacts",
             "date_created",
             "experience",

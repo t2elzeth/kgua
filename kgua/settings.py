@@ -15,6 +15,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
+    'modeltranslation',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -121,3 +122,10 @@ REST_FRAMEWORK = {
     ),
 }
 DATETIME_FORMAT = "d M Y H:i:s"
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('ru', gettext('Russian')),
+    ('en', gettext('English')),
+    ('ky', gettext('Kyrgyz')),
+)

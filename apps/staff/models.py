@@ -4,15 +4,15 @@ from utils.models import MultilanguageModel, AbstractModelWithGenericSerializer
 from django.utils.translation import gettext as _
 
 
-class Staff(MultilanguageModel):
+class Staff(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     department = models.ForeignKey(
         "department.Department",
         on_delete=models.CASCADE,
         related_name="teachers",
     )
-
-    repr_key = "full_name"
+    full_name = models.CharField(max_length=512)
+    role = models.CharField(max_length=512)
 
     class Meta:
         verbose_name = _("Преподователь")
@@ -54,86 +54,22 @@ class StaffEducation(MultilanguageModel):
     )
     from_year = models.IntegerField(verbose_name="Начиная с")
     to_year = models.IntegerField(verbose_name="До")
+    description = models.TextField()
 
     def __str__(self):
-        return f"Edu: of {self.staff} {self.from_year}-{self.to_year}"
+        # return f"Edu: of {self.staff} {self.from_year}-{self.to_year}"
+        return f"#{self.id}"
 
     class Meta:
         verbose_name = 'Образование'
         verbose_name_plural = 'Образования'
 
 
-class StaffEducationAbstract(AbstractModelWithGenericSerializer):
-    description = models.TextField()
-
-    fields = ['description']
-
-    class Meta:
-        abstract = True
-
-
-class StaffEducationRU(StaffEducationAbstract):
-    parent = models.OneToOneField(
-        StaffEducation, on_delete=models.CASCADE, related_name="ru"
-    )
-
-
-class StaffEducationEN(StaffEducationAbstract):
-    parent = models.OneToOneField(
-        StaffEducation, on_delete=models.CASCADE, related_name="en"
-    )
-
-
-class StaffEducationKG(StaffEducationAbstract):
-    parent = models.OneToOneField(
-        StaffEducation, on_delete=models.CASCADE, related_name="kg"
-    )
-
-
-class StaffAbstract(AbstractModelWithGenericSerializer):
-    full_name = models.CharField(max_length=255)
-    role = models.CharField(max_length=255)
-
-    fields = ["full_name", "role"]
-
-    class Meta:
-        abstract = True
-
-
-class StaffRU(StaffAbstract):
-    parent = models.OneToOneField(
-        Staff, on_delete=models.CASCADE, related_name="ru"
-    )
-
-    class Meta:
-        verbose_name = 'Информация о преподователе на русском'
-
-
-class StaffEN(StaffAbstract):
-    parent = models.OneToOneField(
-        Staff, on_delete=models.CASCADE, related_name="en"
-    )
-
-    class Meta:
-        verbose_name = 'Информация о преподователе на английском'
-
-
-class StaffKG(StaffAbstract):
-    parent = models.OneToOneField(
-        Staff, on_delete=models.CASCADE, related_name="kg"
-    )
-
-    class Meta:
-        verbose_name = 'Информация о преподователе на кыргызском'
-
-
 class StaffTraining(models.Model):
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name='trainings')
     from_year = models.IntegerField(verbose_name="Начиная с")
     to_year = models.IntegerField(verbose_name="До")
-    ru_description = models.TextField(verbose_name="На русском")
-    en_description = models.TextField(verbose_name="In english")
-    kg_description = models.TextField(verbose_name="Кыргызча")
+    description = models.TextField(verbose_name="Описание")
 
     def __str__(self):
         return f"Edu: of {self.staff} {self.from_year}-{self.to_year}"
@@ -147,6 +83,8 @@ class StaffScientificWorks(MultilanguageModel):
     staff = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name='scientific_works')
     release_date = models.DateField()
     link = models.URLField(blank=True, null=True)
+    title = models.CharField(max_length=512)
+    magazin_name = models.CharField(max_length=512)
 
     def __str__(self):
         return f"SciWork: of {self.staff} {self.release_date}"
@@ -154,32 +92,3 @@ class StaffScientificWorks(MultilanguageModel):
     class Meta:
         verbose_name = 'Научный труд'
         verbose_name_plural = 'Научные труды'
-
-
-class StaffScientificWorksAbstract(AbstractModelWithGenericSerializer):
-    title = models.CharField(max_length=512)
-    magazin_name = models.CharField(max_length=512)
-
-    fields = ['title', 'magazin_name']
-
-    class Meta:
-        abstract = True
-
-
-class StaffScientificWorksRU(StaffScientificWorksAbstract):
-    parent = models.OneToOneField(
-        StaffScientificWorks, on_delete=models.CASCADE, related_name="ru"
-    )
-
-
-class StaffScientificWorksEN(StaffScientificWorksAbstract):
-    parent = models.OneToOneField(
-        StaffScientificWorks, on_delete=models.CASCADE, related_name="en"
-    )
-
-
-class StaffScientificWorksKG(StaffScientificWorksAbstract):
-    parent = models.OneToOneField(
-        StaffScientificWorks, on_delete=models.CASCADE, related_name="kg"
-    )
-
