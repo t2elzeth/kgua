@@ -1,24 +1,22 @@
-from modeltranslation.translator import translator, TranslationOptions
+from modeltranslation.translator import translator, TranslationOptions, register
 from .models import StaffTraining, StaffScientificWorks, StaffEducation, Staff
 
 
+@register(StaffTraining)
 class StaffTrainingOptions(TranslationOptions):
-    fields = ('description', )
+    fields = ('description',)
 
 
+@register(StaffScientificWorks)
 class StaffScientificWorksOptions(TranslationOptions):
     fields = ['title', 'magazin_name']
 
 
+@register(StaffEducation)
 class StaffEducationOptions(TranslationOptions):
     fields = ['description']
 
 
+@register(Staff)
 class StaffOptions(TranslationOptions):
     fields = ['full_name', 'role']
-
-
-translator.register(StaffTraining, StaffTrainingOptions)
-translator.register(StaffScientificWorks, StaffScientificWorksOptions)
-translator.register(StaffEducation, StaffEducationOptions)
-translator.register(Staff, StaffOptions)
