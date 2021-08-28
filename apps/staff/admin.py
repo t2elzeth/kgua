@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
-from django.conf import settings
+
 from .forms import StaffContactsForm
 from .models import (
     Staff,
