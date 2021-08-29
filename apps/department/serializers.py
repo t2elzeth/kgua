@@ -24,7 +24,8 @@ class DepartmentSerializer(MultilanguageModelSerializer):
     head_teacher = StaffSerializer(source="head_teacher.teacher")
     contacts = DepartmentContactsSerializer()
     rewards = DepartmentRewardSerializer(many=True)
+    teachers = StaffSerializer(many=True)
 
     class Meta:
         model = models.Department
-        fields = ['id', "date_created", 'head_teacher', 'contacts', 'rewards']
+        fields = ['id', "date_created", 'head_teacher', 'contacts', 'rewards', 'teachers']
