@@ -47,6 +47,7 @@ class StaffSerializer(MultilanguageModelSerializer):
         fields = (
             "id",
             "contacts",
+            "role",
             "date_created",
             "experience",
             "education",
