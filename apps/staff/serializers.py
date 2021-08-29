@@ -63,6 +63,7 @@ class StaffSerializer(MultilanguageModelSerializer):
             "id",
             "contacts",
             "position",
+            'image',
             "date_created",
             "experience",
             "education",
