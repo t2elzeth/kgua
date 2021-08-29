@@ -12,7 +12,7 @@ class Department(models.Model):
     activities = models.TextField(verbose_name='Деятельность кафедры')
     pps_info = models.TextField(verbose_name='Информация о ППС')
 
-    description = models.TextField()
+    description = models.TextField(verbose_name='Информация о кафедре')
 
     class Meta:
         verbose_name = _("Кафедра")
@@ -36,3 +36,9 @@ class DepartmentContacts(models.Model):
     phone = models.CharField(max_length=255)
     first_email = models.EmailField()
     second_email = models.EmailField(blank=True, null=True)
+
+
+class DepartmentReward(models.Model):
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='rewards')
+    year = models.IntegerField(verbose_name='Год получения')
+    description = models.TextField(verbose_name='Информация о награде')

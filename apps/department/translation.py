@@ -1,8 +1,13 @@
 from modeltranslation.translator import TranslationOptions, register
 
-from .models import Department
+from . import models
 
 
-@register(Department)
+@register(models.Department)
 class DepartmentOptions(TranslationOptions):
     fields = ("title", 'description', 'pps_number', 'activities', 'pps_info')
+
+
+@register(models.DepartmentReward)
+class DepartmentRewardOptions(TranslationOptions):
+    fields = ('description', )
