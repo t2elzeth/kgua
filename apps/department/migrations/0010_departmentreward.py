@@ -6,19 +6,45 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('department', '0009_auto_20210829_1130'),
+        ("department", "0009_auto_20210829_1130"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='DepartmentReward',
+            name="DepartmentReward",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('year', models.IntegerField(verbose_name='Год получения')),
-                ('description', models.TextField(verbose_name='Информация о награде')),
-                ('description_ru', models.TextField(null=True, verbose_name='Информация о награде')),
-                ('description_en', models.TextField(null=True, verbose_name='Информация о награде')),
-                ('description_ky', models.TextField(null=True, verbose_name='Информация о награде')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("year", models.IntegerField(verbose_name="Год получения")),
+                (
+                    "description",
+                    models.TextField(verbose_name="Информация о награде"),
+                ),
+                (
+                    "description_ru",
+                    models.TextField(
+                        null=True, verbose_name="Информация о награде"
+                    ),
+                ),
+                (
+                    "description_en",
+                    models.TextField(
+                        null=True, verbose_name="Информация о награде"
+                    ),
+                ),
+                (
+                    "description_ky",
+                    models.TextField(
+                        null=True, verbose_name="Информация о награде"
+                    ),
+                ),
             ],
         ),
     ]

@@ -6,46 +6,46 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('department', '0002_auto_20210827_0912'),
+        ("department", "0002_auto_20210827_0912"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='departmentkg',
-            name='parent',
+            model_name="departmentkg",
+            name="parent",
         ),
         migrations.RemoveField(
-            model_name='departmentru',
-            name='parent',
+            model_name="departmentru",
+            name="parent",
         ),
         migrations.AddField(
-            model_name='department',
-            name='title',
+            model_name="department",
+            name="title",
             field=models.CharField(default=1, max_length=512),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='department',
-            name='title_en',
+            model_name="department",
+            name="title_en",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='department',
-            name='title_ky',
+            model_name="department",
+            name="title_ky",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.AddField(
-            model_name='department',
-            name='title_ru',
+            model_name="department",
+            name="title_ru",
             field=models.CharField(max_length=512, null=True),
         ),
         migrations.DeleteModel(
-            name='DepartmentEN',
+            name="DepartmentEN",
         ),
         migrations.DeleteModel(
-            name='DepartmentKG',
+            name="DepartmentKG",
         ),
         migrations.DeleteModel(
-            name='DepartmentRU',
+            name="DepartmentRU",
         ),
     ]

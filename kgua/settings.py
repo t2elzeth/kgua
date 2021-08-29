@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "drf_yasg",
     "corsheaders",
-    'django_filters',
+    "django_filters",
     # Own
     "authorization",
     "news",

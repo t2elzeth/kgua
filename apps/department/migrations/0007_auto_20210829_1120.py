@@ -6,35 +6,37 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('department', '0006_alter_departmentcontacts_second_email'),
+        ("department", "0006_alter_departmentcontacts_second_email"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='department',
-            name='description',
+            model_name="department",
+            name="description",
             field=models.TextField(default=2015),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='department',
-            name='description_en',
+            model_name="department",
+            name="description_en",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='department',
-            name='description_ky',
+            model_name="department",
+            name="description_ky",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='department',
-            name='description_ru',
+            model_name="department",
+            name="description_ru",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='department',
-            name='foundation_year',
-            field=models.IntegerField(default=2015, verbose_name='Год образования'),
+            model_name="department",
+            name="foundation_year",
+            field=models.IntegerField(
+                default=2015, verbose_name="Год образования"
+            ),
             preserve_default=False,
         ),
     ]

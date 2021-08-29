@@ -7,20 +7,53 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('staff', '0018_rename_role_staff_position'),
+        ("staff", "0018_rename_role_staff_position"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='StaffReward',
+            name="StaffReward",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('year', models.IntegerField(verbose_name='Год получения')),
-                ('description', models.TextField(verbose_name='Информация о награде')),
-                ('description_ru', models.TextField(null=True, verbose_name='Информация о награде')),
-                ('description_en', models.TextField(null=True, verbose_name='Информация о награде')),
-                ('description_ky', models.TextField(null=True, verbose_name='Информация о награде')),
-                ('department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='rewards', to='staff.staff')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("year", models.IntegerField(verbose_name="Год получения")),
+                (
+                    "description",
+                    models.TextField(verbose_name="Информация о награде"),
+                ),
+                (
+                    "description_ru",
+                    models.TextField(
+                        null=True, verbose_name="Информация о награде"
+                    ),
+                ),
+                (
+                    "description_en",
+                    models.TextField(
+                        null=True, verbose_name="Информация о награде"
+                    ),
+                ),
+                (
+                    "description_ky",
+                    models.TextField(
+                        null=True, verbose_name="Информация о награде"
+                    ),
+                ),
+                (
+                    "department",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="rewards",
+                        to="staff.staff",
+                    ),
+                ),
             ],
         ),
     ]

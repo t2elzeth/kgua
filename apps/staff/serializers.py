@@ -8,7 +8,7 @@ from .models import (
     StaffEducation,
     StaffTraining,
     StaffExperience,
-    StaffReward
+    StaffReward,
 )
 
 
@@ -41,13 +41,13 @@ class StaffEducationSerializer(MultilanguageModelSerializer):
 class StaffExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = StaffExperience
-        fields = ('overall', 'pedagogical')
+        fields = ("overall", "pedagogical")
 
 
 class StaffRewardSerializer(MultilanguageModelSerializer):
     class Meta:
         model = StaffReward
-        fields = ('year',)
+        fields = ("year",)
 
 
 class StaffSerializer(MultilanguageModelSerializer):
@@ -63,10 +63,10 @@ class StaffSerializer(MultilanguageModelSerializer):
             "id",
             "contacts",
             "position",
-            'image',
+            "image",
             "date_created",
             "experience",
             "education",
             "trainings",
-            'rewards'
+            "rewards",
         )

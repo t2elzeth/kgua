@@ -15,9 +15,13 @@ class DepartmentContactsInline(admin.StackedInline):
 class DepartmentRewardInline(TranslationStackedInline):
     model = models.DepartmentReward
     extra = 0
-    classes = ('collapse',)
+    classes = ("collapse",)
 
 
 @admin.register(models.Department)
 class DepartmentAdmin(TranslationAdmin):
-    inlines = [DepartmentHeadTeacherInline, DepartmentContactsInline, DepartmentRewardInline]
+    inlines = [
+        DepartmentHeadTeacherInline,
+        DepartmentContactsInline,
+        DepartmentRewardInline,
+    ]

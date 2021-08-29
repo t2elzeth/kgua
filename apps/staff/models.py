@@ -14,10 +14,12 @@ class Staff(models.Model):
     full_name = models.CharField(max_length=512)
     image = models.ImageField(blank=True, null=True)
 
-    POSITION_TEACHER = 'teacher'
-    POSITION_RECTOR = 'rector'
-    POSITION_CHOICES = ((POSITION_TEACHER, POSITION_TEACHER),
-                        (POSITION_RECTOR, POSITION_RECTOR))
+    POSITION_TEACHER = "teacher"
+    POSITION_RECTOR = "rector"
+    POSITION_CHOICES = (
+        (POSITION_TEACHER, POSITION_TEACHER),
+        (POSITION_RECTOR, POSITION_RECTOR),
+    )
     position = models.CharField(max_length=512, choices=POSITION_CHOICES)
 
     class Meta:
@@ -108,6 +110,8 @@ class StaffScientificWorks(MultilanguageModel):
 
 
 class StaffReward(models.Model):
-    department = models.ForeignKey(Staff, on_delete=models.CASCADE, related_name='rewards')
-    year = models.IntegerField(verbose_name='Год получения')
-    description = models.TextField(verbose_name='Информация о награде')
+    department = models.ForeignKey(
+        Staff, on_delete=models.CASCADE, related_name="rewards"
+    )
+    year = models.IntegerField(verbose_name="Год получения")
+    description = models.TextField(verbose_name="Информация о награде")

@@ -8,12 +8,16 @@ class StaffFilter(django_filters.rest_framework.FilterSet):
         super().__init__(*args, **kwargs)
 
         languages = list(map(lambda el: el[0], settings.LANGUAGES))
-        query_lang = self.request.query_params.get('lang')
+        query_lang = self.request.query_params.get("lang")
 
         if query_lang not in languages:
-            query_lang = 'ru'
+            query_lang = "ru"
 
-        self.filters['full_name'].field_name += f"_{query_lang}"
+        self.filters["full_name"].field_name += f"_{query_lang}"
 
-    position = django_filters.CharFilter(field_name="position", lookup_expr='iexact')
-    full_name = django_filters.CharFilter(field_name="full_name", lookup_expr='icontains')
+    position = django_filters.CharFilter(
+        field_name="position", lookup_expr="iexact"
+    )
+    full_name = django_filters.CharFilter(
+        field_name="full_name", lookup_expr="icontains"
+    )

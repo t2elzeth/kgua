@@ -7,14 +7,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('department', '0010_departmentreward'),
+        ("department", "0010_departmentreward"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='departmentreward',
-            name='department',
-            field=models.OneToOneField(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='rewards', to='department.department'),
+            model_name="departmentreward",
+            name="department",
+            field=models.OneToOneField(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="rewards",
+                to="department.department",
+            ),
             preserve_default=False,
         ),
     ]

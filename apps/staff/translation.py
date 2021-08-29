@@ -1,6 +1,12 @@
 from modeltranslation.translator import TranslationOptions, register
 
-from .models import StaffTraining, StaffScientificWorks, StaffEducation, Staff, StaffReward
+from .models import (
+    StaffTraining,
+    StaffScientificWorks,
+    StaffEducation,
+    Staff,
+    StaffReward,
+)
 
 
 @register(StaffTraining)
@@ -25,4 +31,4 @@ class StaffOptions(TranslationOptions):
 
 @register(StaffReward)
 class StaffRewardOptions(TranslationOptions):
-    fields = ('description', )
+    fields = ("description",)

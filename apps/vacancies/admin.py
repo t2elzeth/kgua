@@ -1,20 +1,9 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
-from .models import Vacancy, VacancyEN, VacancyKG, VacancyRU
-
-
-class VacancyENInline(admin.StackedInline):
-    model = VacancyEN
+from . import models
 
 
-class VacancyRUInline(admin.StackedInline):
-    model = VacancyRU
-
-
-class VacancyKGInline(admin.StackedInline):
-    model = VacancyKG
-
-
-@admin.register(Vacancy)
-class VacancyAdmin(admin.ModelAdmin):
-    inlines = [VacancyRUInline, VacancyKGInline, VacancyENInline]
+@admin.register(models.Vacancy)
+class VacancyAdmin(TranslationAdmin):
+    pass

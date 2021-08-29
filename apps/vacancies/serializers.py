@@ -1,13 +1,8 @@
-from rest_framework import serializers
+from utils.serializers import MultilanguageModelSerializer
+from . import models
 
-from .models import Vacancy, VacancyRU, VacancyKG, VacancyEN
 
-
-class VacancySerializer(serializers.ModelSerializer):
-    ru = VacancyRU.get_serializer()
-    kg = VacancyKG.get_serializer()
-    en = VacancyEN.get_serializer()
-
+class VacancySerializer(MultilanguageModelSerializer):
     class Meta:
-        model = Vacancy
-        fields = ['id', "ru", "kg", "en", "date_created"]
+        model = models.Vacancy
+        fields = ["id", "date_created", "salary"]

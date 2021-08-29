@@ -31,14 +31,12 @@ class MultilanguageModelSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
 
         languages = list(map(lambda el: el[0], settings.LANGUAGES))
-        query_lang = self.context['request'].query_params.get('lang')
+        query_lang = self.context["request"].query_params.get("lang")
         if query_lang not in languages:
             query_lang = "ru"
 
         translated_fields = [
-            el
-            for el in instance.__dict__.keys()
-            if el.endswith(query_lang)
+            el for el in instance.__dict__.keys() if el.endswith(query_lang)
         ]
 
         res = {}

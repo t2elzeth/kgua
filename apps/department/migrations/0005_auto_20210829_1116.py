@@ -7,28 +7,48 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('staff', '0017_auto_20210829_1031'),
-        ('department', '0004_departmentheadteacher'),
+        ("staff", "0017_auto_20210829_1031"),
+        ("department", "0004_departmentheadteacher"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='departmentheadteacher',
-            options={'verbose_name': 'Заведующий'},
+            name="departmentheadteacher",
+            options={"verbose_name": "Заведующий"},
         ),
         migrations.AlterField(
-            model_name='departmentheadteacher',
-            name='teacher',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='head_teacher', to='staff.staff', verbose_name='Зав.кафедры'),
+            model_name="departmentheadteacher",
+            name="teacher",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="head_teacher",
+                to="staff.staff",
+                verbose_name="Зав.кафедры",
+            ),
         ),
         migrations.CreateModel(
-            name='DepartmentContacts',
+            name="DepartmentContacts",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('phone', models.CharField(max_length=255)),
-                ('first_email', models.EmailField(max_length=254)),
-                ('second_email', models.EmailField(max_length=254)),
-                ('department', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='contacts', to='department.department')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("phone", models.CharField(max_length=255)),
+                ("first_email", models.EmailField(max_length=254)),
+                ("second_email", models.EmailField(max_length=254)),
+                (
+                    "department",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="contacts",
+                        to="department.department",
+                    ),
+                ),
             ],
         ),
     ]

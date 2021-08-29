@@ -6,71 +6,87 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('department', '0007_auto_20210829_1120'),
+        ("department", "0007_auto_20210829_1120"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='department',
-            name='activities',
-            field=models.TextField(default=1, verbose_name='Деятельность кафедры'),
+            model_name="department",
+            name="activities",
+            field=models.TextField(
+                default=1, verbose_name="Деятельность кафедры"
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='department',
-            name='activities_en',
-            field=models.TextField(null=True, verbose_name='Деятельность кафедры'),
+            model_name="department",
+            name="activities_en",
+            field=models.TextField(
+                null=True, verbose_name="Деятельность кафедры"
+            ),
         ),
         migrations.AddField(
-            model_name='department',
-            name='activities_ky',
-            field=models.TextField(null=True, verbose_name='Деятельность кафедры'),
+            model_name="department",
+            name="activities_ky",
+            field=models.TextField(
+                null=True, verbose_name="Деятельность кафедры"
+            ),
         ),
         migrations.AddField(
-            model_name='department',
-            name='activities_ru',
-            field=models.TextField(null=True, verbose_name='Деятельность кафедры'),
+            model_name="department",
+            name="activities_ru",
+            field=models.TextField(
+                null=True, verbose_name="Деятельность кафедры"
+            ),
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_info',
-            field=models.TextField(default=1, verbose_name='Информация о ППС'),
+            model_name="department",
+            name="pps_info",
+            field=models.TextField(default=1, verbose_name="Информация о ППС"),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_info_en',
-            field=models.TextField(null=True, verbose_name='Информация о ППС'),
+            model_name="department",
+            name="pps_info_en",
+            field=models.TextField(null=True, verbose_name="Информация о ППС"),
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_info_ky',
-            field=models.TextField(null=True, verbose_name='Информация о ППС'),
+            model_name="department",
+            name="pps_info_ky",
+            field=models.TextField(null=True, verbose_name="Информация о ППС"),
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_info_ru',
-            field=models.TextField(null=True, verbose_name='Информация о ППС'),
+            model_name="department",
+            name="pps_info_ru",
+            field=models.TextField(null=True, verbose_name="Информация о ППС"),
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_number',
-            field=models.TextField(default=1, verbose_name='Количество преподователей'),
+            model_name="department",
+            name="pps_number",
+            field=models.TextField(
+                default=1, verbose_name="Количество преподователей"
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_number_en',
-            field=models.TextField(null=True, verbose_name='Количество преподователей'),
+            model_name="department",
+            name="pps_number_en",
+            field=models.TextField(
+                null=True, verbose_name="Количество преподователей"
+            ),
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_number_ky',
-            field=models.TextField(null=True, verbose_name='Количество преподователей'),
+            model_name="department",
+            name="pps_number_ky",
+            field=models.TextField(
+                null=True, verbose_name="Количество преподователей"
+            ),
         ),
         migrations.AddField(
-            model_name='department',
-            name='pps_number_ru',
-            field=models.TextField(null=True, verbose_name='Количество преподователей'),
+            model_name="department",
+            name="pps_number_ru",
+            field=models.TextField(
+                null=True, verbose_name="Количество преподователей"
+            ),
         ),
     ]

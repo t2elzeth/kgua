@@ -7,17 +7,13 @@ from rest_framework import serializers
 class DepartmentContactsSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.DepartmentContacts
-        fields = (
-            'phone',
-            'first_email',
-            'second_email'
-        )
+        fields = ("phone", "first_email", "second_email")
 
 
 class DepartmentRewardSerializer(MultilanguageModelSerializer):
     class Meta:
         model = models.DepartmentReward
-        fields = ('year', )
+        fields = ("year",)
 
 
 class DepartmentSerializer(MultilanguageModelSerializer):
@@ -28,4 +24,11 @@ class DepartmentSerializer(MultilanguageModelSerializer):
 
     class Meta:
         model = models.Department
-        fields = ['id', "date_created", 'head_teacher', 'contacts', 'rewards', 'teachers']
+        fields = [
+            "id",
+            "date_created",
+            "head_teacher",
+            "contacts",
+            "rewards",
+            "teachers",
+        ]
