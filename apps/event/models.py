@@ -11,6 +11,10 @@ class Event(models.Model):
     def __str__(self):
         return f"Event {self.title}: {self.date_from}-{self.date_to}"
 
+    class Meta:
+        verbose_name = 'Мероприятие'
+        verbose_name_plural = 'Мероприятия'
+
 
 class EventImage(models.Model):
     event = models.ForeignKey(
@@ -20,3 +24,7 @@ class EventImage(models.Model):
 
     def __str__(self):
         return f"Image #{self.id} of {self.event}"
+
+    class Meta:
+        verbose_name = 'Картинка мероприятия'
+        verbose_name_plural = 'Картинки мероприятия'

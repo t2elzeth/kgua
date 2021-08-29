@@ -25,17 +25,24 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     # path("api/v1/auth/", include("authorization.urls")),
+
+    # Новости
     path("api/v1/news/", include("news.urls")),
+
+    # Вакансии
     path("api/v1/vacancies/", include("vacancies.urls")),
+
+    # Преподаватели
     path("api/v1/staff/", include("staff.urls")),
+
+    # Кафедры
     path("api/v1/department/", include("department.urls")),
-    # path("api/v1/documents/", include("documents.urls")),
-    # path("api/v1/life/", include("kgua_life.urls")),
+
+    # Клубы
     path("api/v1/clubs/", include("clubs.urls")),
-    # path(
-    #     "api/v1/international_cooperation/",
-    #     include("international_cooperation.urls"),
-    # ),
+
+    # Мероприятия
+    path("api/v1/events/", include("event.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
