@@ -22,12 +22,11 @@ class StaffContactsForm(forms.ModelForm):
         corporate_email = self.cleaned_data["corporate_email"]
 
         if not hasattr(self.instance, "email"):
-            self.instance.email = StaffContactEmail(
+            StaffContactEmail.objects.create(
                 contact=self.instance,
                 personal=personal_email,
                 corporate=corporate_email,
             )
-            self.instance.email.save()
 
         self.instance.email.personal = personal_email
         self.instance.email.corporate = corporate_email
