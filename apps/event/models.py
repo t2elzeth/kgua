@@ -13,7 +13,9 @@ class Event(models.Model):
 
 
 class EventImage(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='images')
+    event = models.ForeignKey(
+        Event, on_delete=models.CASCADE, related_name="images"
+    )
     image = models.ImageField()
 
     def __str__(self):

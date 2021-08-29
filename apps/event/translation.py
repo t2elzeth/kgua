@@ -5,4 +5,4 @@ from . import models
 
 @register(models.Event)
 class EventOptions(TranslationOptions):
-    fields = ('title', 'description')
+    fields = ("title", "description")
