@@ -1,6 +1,6 @@
 from django.db import models
 
-from utils.models import MultilanguageModel, AbstractModelWithGenericSerializer
+from utils.models import AbstractModelWithGenericSerializer, MultilanguageModel
 
 
 class Club(MultilanguageModel):

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Club, ClubRU, ClubEN, ClubKG
+from .models import Club, ClubEN, ClubKG, ClubRU
 
 
 class ClubENInline(admin.StackedInline):

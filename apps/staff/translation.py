@@ -1,12 +1,7 @@
 from modeltranslation.translator import TranslationOptions, register
 
-from .models import (
-    StaffTraining,
-    StaffScientificWorks,
-    StaffEducation,
-    Staff,
-    StaffReward,
-)
+from .models import (Staff, StaffEducation, StaffReward, StaffScientificWorks,
+                     StaffTraining)
 
 
 @register(StaffTraining)

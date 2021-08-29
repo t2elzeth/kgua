@@ -1,8 +1,8 @@
 from rest_framework import generics
 
+from . import filters
 from .models import Staff
 from .serializers import StaffSerializer
-from . import filters
 
 
 class StaffListAPIView(generics.ListAPIView):

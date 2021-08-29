@@ -2,15 +2,8 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 
 from .forms import StaffContactsForm
-from .models import (
-    Staff,
-    StaffContacts,
-    StaffExperience,
-    StaffEducation,
-    StaffTraining,
-    StaffScientificWorks,
-    StaffReward,
-)
+from .models import (Staff, StaffContacts, StaffEducation, StaffExperience,
+                     StaffReward, StaffScientificWorks, StaffTraining)
 
 
 class StaffContactsInline(admin.StackedInline):

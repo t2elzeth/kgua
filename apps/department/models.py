@@ -1,7 +1,7 @@
 from django.db import models
-
-from utils.models import MultilanguageModel, AbstractModelWithGenericSerializer
 from django.utils.translation import gettext as _
+
+from utils.models import AbstractModelWithGenericSerializer, MultilanguageModel
 
 
 class Department(models.Model):

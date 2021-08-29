@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import StaffContacts, StaffContactEmail, StaffEducation
+from .models import StaffContactEmail, StaffContacts, StaffEducation
 
 
 class StaffContactsForm(forms.ModelForm):

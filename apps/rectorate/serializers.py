@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Vacancy, VacancyRU, VacancyKG, VacancyEN
+from .models import Vacancy, VacancyEN, VacancyKG, VacancyRU
 
 
 class VacancySerializer(serializers.ModelSerializer):

@@ -1,7 +1,9 @@
-from . import models
-from utils.serializers import MultilanguageModelSerializer
-from staff.serializers import StaffSerializer
 from rest_framework import serializers
+from staff.serializers import StaffSerializer
+
+from utils.serializers import MultilanguageModelSerializer
+
+from . import models
 
 
 class DepartmentContactsSerializer(serializers.ModelSerializer):

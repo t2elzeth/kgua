@@ -6,73 +6,73 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0002_auto_20210826_1019'),
+        ("news", "0002_auto_20210826_1019"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='newskg',
-            name='parent',
+            model_name="newskg",
+            name="parent",
         ),
         migrations.RemoveField(
-            model_name='newsru',
-            name='parent',
+            model_name="newsru",
+            name="parent",
         ),
         migrations.AddField(
-            model_name='news',
-            name='description',
+            model_name="news",
+            name="description",
             field=models.TextField(default=1),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='news',
-            name='description_en',
+            model_name="news",
+            name="description_en",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='description_ky',
+            model_name="news",
+            name="description_ky",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='description_ru',
+            model_name="news",
+            name="description_ru",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='image',
-            field=models.ImageField(default=1, upload_to=''),
+            model_name="news",
+            name="image",
+            field=models.ImageField(default=1, upload_to=""),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='news',
-            name='title',
+            model_name="news",
+            name="title",
             field=models.CharField(default=1, max_length=255),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='news',
-            name='title_en',
+            model_name="news",
+            name="title_en",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='title_ky',
+            model_name="news",
+            name="title_ky",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='title_ru',
+            model_name="news",
+            name="title_ru",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.DeleteModel(
-            name='NewsEN',
+            name="NewsEN",
         ),
         migrations.DeleteModel(
-            name='NewsKG',
+            name="NewsKG",
         ),
         migrations.DeleteModel(
-            name='NewsRU',
+            name="NewsRU",
         ),
     ]

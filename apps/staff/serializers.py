@@ -1,15 +1,9 @@
 from rest_framework import serializers
 
 from utils.serializers import MultilanguageModelSerializer
-from .models import (
-    Staff,
-    StaffContacts,
-    StaffContactEmail,
-    StaffEducation,
-    StaffTraining,
-    StaffExperience,
-    StaffReward,
-)
+
+from .models import (Staff, StaffContactEmail, StaffContacts, StaffEducation,
+                     StaffExperience, StaffReward, StaffTraining)
 
 
 class StaffContactEmailSerializer(serializers.ModelSerializer):

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-from utils.models import MultilanguageModel, AbstractModelWithGenericSerializer
+from utils.models import AbstractModelWithGenericSerializer, MultilanguageModel
 
 
 class Staff(models.Model):
