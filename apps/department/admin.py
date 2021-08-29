@@ -1,20 +1,17 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 
-from .models import Department, DepartmentEN, DepartmentKG, DepartmentRU
-
-
-class DepartmentENInline(admin.StackedInline):
-    model = DepartmentEN
+from . import models
 
 
-class DepartmentRUInline(admin.StackedInline):
-    model = DepartmentRU
+class DepartmentHeadTeacherInline(admin.StackedInline):
+    model = models.DepartmentHeadTeacher
 
 
-class DepartmentKGInline(admin.StackedInline):
-    model = DepartmentKG
+class DepartmentContactsInline(admin.StackedInline):
+    model = models.DepartmentContacts
 
 
-@admin.register(Department)
-class DepartmentAdmin(admin.ModelAdmin):
-    inlines = [DepartmentRUInline, DepartmentKGInline, DepartmentENInline]
+@admin.register(models.Department)
+class DepartmentAdmin(TranslationAdmin):
+    inlines = [DepartmentHeadTeacherInline, DepartmentContactsInline]

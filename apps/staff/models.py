@@ -23,6 +23,9 @@ class Staff(models.Model):
         verbose_name = _("Преподователь")
         verbose_name_plural = _("Преподователи")
 
+    def __str__(self):
+        return f"{self.full_name}: {self.role}"
+
 
 class StaffContacts(models.Model):
     staff = models.OneToOneField(

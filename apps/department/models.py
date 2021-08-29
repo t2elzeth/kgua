@@ -4,37 +4,35 @@ from utils.models import MultilanguageModel, AbstractModelWithGenericSerializer
 from django.utils.translation import gettext as _
 
 
-class Department(MultilanguageModel):
+class Department(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
-    repr_key = "title"
+    title = models.CharField(max_length=512)
+    foundation_year = models.IntegerField(verbose_name='Год образования')
+    pps_number = models.TextField(verbose_name='Количество преподователей')
+    activities = models.TextField(verbose_name='Деятельность кафедры')
+    pps_info = models.TextField(verbose_name='Информация о ППС')
+
+    description = models.TextField()
 
     class Meta:
         verbose_name = _("Кафедра")
         verbose_name_plural = _("Кафедры")
 
+    def __str__(self):
+        return f"{self.title_ru} | {self.title_en} | {self.title_ky}"
 
-class DepartmentAbstract(AbstractModelWithGenericSerializer):
-    title = models.CharField(max_length=255)
 
-    fields = ["title"]
+class DepartmentHeadTeacher(models.Model):
+    department = models.OneToOneField(Department, on_delete=models.CASCADE, related_name='head_teacher')
+    teacher = models.ForeignKey('staff.Staff', on_delete=models.CASCADE, related_name='head_teacher',
+                                verbose_name='Зав.кафедры')
 
     class Meta:
-        abstract = True
+        verbose_name = 'Заведующий'
 
 
-class DepartmentRU(DepartmentAbstract):
-    parent = models.OneToOneField(
-        Department, on_delete=models.CASCADE, related_name="ru"
-    )
-
-
-class DepartmentEN(DepartmentAbstract):
-    parent = models.OneToOneField(
-        Department, on_delete=models.CASCADE, related_name="en"
-    )
-
-
-class DepartmentKG(DepartmentAbstract):
-    parent = models.OneToOneField(
-        Department, on_delete=models.CASCADE, related_name="kg"
-    )
+class DepartmentContacts(models.Model):
+    department = models.OneToOneField(Department, on_delete=models.CASCADE, related_name='contacts')
+    phone = models.CharField(max_length=255)
+    first_email = models.EmailField()
+    second_email = models.EmailField(blank=True, null=True)
