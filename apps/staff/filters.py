@@ -17,7 +17,3 @@ class StaffFilter(django_filters.rest_framework.FilterSet):
 
     position = django_filters.CharFilter(field_name="position", lookup_expr='iexact')
     full_name = django_filters.CharFilter(field_name="full_name", lookup_expr='icontains')
-
-    class Meta:
-        model = models.Staff
-        fields = ("position",)
