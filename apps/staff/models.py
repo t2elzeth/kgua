@@ -23,8 +23,8 @@ class Staff(models.Model):
     position = models.CharField(max_length=512, choices=POSITION_CHOICES)
 
     class Meta:
-        verbose_name = _("Преподователь")
-        verbose_name_plural = _("Преподователи")
+        verbose_name = _("Преподаватель")
+        verbose_name_plural = _("Преподаватели")
 
     def __str__(self):
         return f"{self.full_name}: {self.position}"

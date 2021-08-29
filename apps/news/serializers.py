@@ -1,13 +1,8 @@
-from rest_framework import serializers
+from utils.serializers import MultilanguageModelSerializer
+from . import models
 
-from .models import News, NewsEN, NewsKG, NewsRU
 
-
-class NewsSerializer(serializers.ModelSerializer):
-    ru = NewsRU.get_serializer()
-    kg = NewsKG.get_serializer()
-    en = NewsEN.get_serializer()
-
+class NewsSerializer(MultilanguageModelSerializer):
     class Meta:
-        model = News
-        fields = ["id", "ru", "kg", "en", "date_created"]
+        model = models.News
+        fields = ["id", "date_created", 'image']
