@@ -15,7 +15,8 @@ class Staff(models.Model):
 
     ROLE_TEACHER = 'teacher'
     ROLE_RECTOR = 'rector'
-    ROLE_CHOICES = (())
+    ROLE_CHOICES = ((ROLE_TEACHER, ROLE_TEACHER),
+                    (ROLE_RECTOR, ROLE_RECTOR))
     role = models.CharField(max_length=512, choices=ROLE_CHOICES)
 
     class Meta:

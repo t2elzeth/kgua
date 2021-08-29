@@ -44,11 +44,32 @@ class MultilanguageModelSerializer(serializers.ModelSerializer):
             for el in self.instance.__dict__.keys()
             if el.endswith(query_lang)
         ]
+
         res = {}
         for f in translated_fields:
             key = f.rsplit("_", 1)[0]
             res[key] = getattr(self.instance, f)
-
-        print(res)
         data.update(res)
+        return data
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+
+        languages = list(map(lambda el: el[0], settings.LANGUAGES))
+        query_lang = self.context['request'].query_params.get('lang')
+        if query_lang not in languages:
+            query_lang = "ru"
+
+        translated_fields = [
+            el
+            for el in instance.__dict__.keys()
+            if el.endswith(query_lang)
+        ]
+
+        res = {}
+        for f in translated_fields:
+            key = f.rsplit("_", 1)[0]
+            res[key] = getattr(instance, f)
+        data.update(res)
+
         return data

@@ -20,4 +20,4 @@ class StaffEducationOptions(TranslationOptions):
 
 @register(Staff)
 class StaffOptions(TranslationOptions):
-    fields = ["full_name", "role"]
+    fields = ["full_name"]
