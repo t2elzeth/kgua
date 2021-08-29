@@ -9,6 +9,7 @@ from .models import (
     StaffEducation,
     StaffTraining,
     StaffScientificWorks,
+    StaffReward
 )
 
 
@@ -64,6 +65,12 @@ class MultilanguageModelAdmin(TranslationAdmin):
     #     return super().get_fieldsets(request, obj)
 
 
+class StaffRewardInline(TranslationStackedInline):
+    model = StaffReward
+    extra = 0
+    classes = ('collapse',)
+
+
 @admin.register(Staff)
 class StaffAdmin(MultilanguageModelAdmin):
     inlines = [
@@ -72,11 +79,12 @@ class StaffAdmin(MultilanguageModelAdmin):
         StaffEducationInline,
         StaffTrainingInline,
         StaffScientificWorksInline,
+        StaffRewardInline
     ]
 
     fieldsets = (
         (None, {
-            'fields': ('department', 'role', )
+            'fields': ('department', 'position', 'image',)
         }),
         ('Full Name', {
             'fields': ('full_name_ru', 'full_name_en', 'full_name_ky')

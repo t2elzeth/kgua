@@ -1,6 +1,6 @@
 from modeltranslation.translator import TranslationOptions, register
 
-from .models import StaffTraining, StaffScientificWorks, StaffEducation, Staff
+from .models import StaffTraining, StaffScientificWorks, StaffEducation, Staff, StaffReward
 
 
 @register(StaffTraining)
@@ -21,3 +21,8 @@ class StaffEducationOptions(TranslationOptions):
 @register(Staff)
 class StaffOptions(TranslationOptions):
     fields = ["full_name"]
+
+
+@register(StaffReward)
+class StaffRewardOptions(TranslationOptions):
+    fields = ('description', )
