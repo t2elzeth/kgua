@@ -10,4 +10,4 @@ class NewsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ["ru", "kg", "en", "date_created"]
+        fields = ['id', "ru", "kg", "en", "date_created"]

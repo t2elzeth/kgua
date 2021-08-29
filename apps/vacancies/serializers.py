@@ -10,4 +10,4 @@ class VacancySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vacancy
-        fields = ["ru", "kg", "en", "date_created"]
+        fields = ['id', "ru", "kg", "en", "date_created"]

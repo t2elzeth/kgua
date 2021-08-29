@@ -28,6 +28,7 @@ urlpatterns = [
     path("api/v1/news/", include("news.urls")),
     path("api/v1/vacancies/", include("vacancies.urls")),
     path("api/v1/staff/", include("staff.urls")),
+    path("api/v1/department/", include("department.urls")),
     # path("api/v1/documents/", include("documents.urls")),
     # path("api/v1/life/", include("kgua_life.urls")),
     path("api/v1/clubs/", include("clubs.urls")),

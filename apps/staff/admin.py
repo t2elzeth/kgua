@@ -19,14 +19,12 @@ class StaffContactsInline(admin.StackedInline):
         (None, {"fields": ["phone"]}),
         ("Email", {"fields": ["personal_email", "corporate_email"]}),
     )
-    classes = ["collapse"]
     can_delete = False
 
 
 class StaffExperienceInline(admin.StackedInline):
     model = StaffExperience
     can_delete = False
-    classes = ["collapse"]
 
 
 class StaffEducationInline(TranslationStackedInline):
@@ -81,7 +79,6 @@ class StaffAdmin(MultilanguageModelAdmin):
             'fields': ('department', 'role', )
         }),
         ('Full Name', {
-            'classes': ('collapse',),
             'fields': ('full_name_ru', 'full_name_en', 'full_name_ky')
         }),
     )
