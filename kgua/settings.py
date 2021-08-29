@@ -32,12 +32,10 @@ INSTALLED_APPS = [
     "authorization",
     "news",
     "staff",
-    # "documents",
-    # "kgua_life",
-    # "international_cooperation",
     "clubs",
     "vacancies",
     "department",
+    "event"
 ]
 
 MIDDLEWARE = [
