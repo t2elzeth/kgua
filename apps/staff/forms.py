@@ -18,12 +18,13 @@ class StaffContactsForm(forms.ModelForm):
             ].initial = self.instance.email.corporate
 
     def save(self, commit=True):
+        res = super().save()
         personal_email = self.cleaned_data["personal_email"]
         corporate_email = self.cleaned_data["corporate_email"]
 
         if not hasattr(self.instance, "email"):
             StaffContactEmail.objects.create(
-                contact=self.instance,
+                contact=res,
                 personal=personal_email,
                 corporate=corporate_email,
             )
@@ -32,7 +33,7 @@ class StaffContactsForm(forms.ModelForm):
         self.instance.email.corporate = corporate_email
         self.instance.email.save()
 
-        return super().save()
+        return res
 
     class Meta:
         model = StaffContacts
