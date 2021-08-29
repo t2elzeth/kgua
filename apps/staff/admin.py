@@ -78,7 +78,7 @@ class StaffAdmin(MultilanguageModelAdmin):
 
     fieldsets = (
         (None, {
-            'fields': ('role', )
+            'fields': ('department', 'role', )
         }),
         ('Full Name', {
             'classes': ('collapse',),
