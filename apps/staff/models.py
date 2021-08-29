@@ -12,7 +12,11 @@ class Staff(models.Model):
         related_name="teachers",
     )
     full_name = models.CharField(max_length=512)
-    role = models.CharField(max_length=512)
+
+    ROLE_TEACHER = 'teacher'
+    ROLE_RECTOR = 'rector'
+    ROLE_CHOICES = (())
+    role = models.CharField(max_length=512, choices=ROLE_CHOICES)
 
     class Meta:
         verbose_name = _("Преподователь")

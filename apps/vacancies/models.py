@@ -6,6 +6,7 @@ from django.utils.translation import gettext as _
 
 class Vacancy(MultilanguageModel):
     date_created = models.DateTimeField(auto_now_add=True)
+    repr_key = "title"
 
     class Meta:
         verbose_name = _("Вакансия")

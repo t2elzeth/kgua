@@ -30,8 +30,25 @@ class MultilanguageModelSerializer(serializers.ModelSerializer):
     def get_field_names(self, declared_fields, info):
         return super().get_field_names([*declared_fields], info)
 
-    def get_fields(self):
-        res = super().get_fields()
-        for lang in list(map(lambda el: el[0], settings.LANGUAGES)):
-            res.update({lang: MultilanguageField(lang=lang, read_only=True)})
-        return res
+    @property
+    def data(self):
+        data = super().data
+
+        languages = list(map(lambda el: el[0], settings.LANGUAGES))
+        query_lang = self.context['request'].query_params.get('lang')
+        if query_lang not in languages:
+            query_lang = "ru"
+
+        translated_fields = [
+            el
+            for el in self.instance.__dict__.keys()
+            if el.endswith(query_lang)
+        ]
+        res = {}
+        for f in translated_fields:
+            key = f.rsplit("_", 1)[0]
+            res[key] = getattr(self.instance, f)
+
+        print(res)
+        data.update(res)
+        return data
