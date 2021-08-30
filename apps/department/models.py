@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-from utils.models import AbstractModelWithGenericSerializer, MultilanguageModel
-
 
 class Department(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)

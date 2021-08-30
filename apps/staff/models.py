@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-from utils.models import AbstractModelWithGenericSerializer, MultilanguageModel
-
 
 class Staff(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
@@ -59,7 +57,7 @@ class StaffExperience(models.Model):
         verbose_name = "Стаж"
 
 
-class StaffEducation(MultilanguageModel):
+class StaffEducation(models.Model):
     staff = models.ForeignKey(
         "Staff", on_delete=models.CASCADE, related_name="education"
     )
@@ -92,7 +90,7 @@ class StaffTraining(models.Model):
         verbose_name_plural = "Повышения квалификации"
 
 
-class StaffScientificWorks(MultilanguageModel):
+class StaffScientificWorks(models.Model):
     staff = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="scientific_works"
     )

@@ -1,20 +1,8 @@
 from django.contrib import admin
-
-from .models import Club, ClubEN, ClubKG, ClubRU
-
-
-class ClubENInline(admin.StackedInline):
-    model = ClubEN
+from modeltranslation.admin import TranslationAdmin
+from . import models
 
 
-class ClubRUInline(admin.StackedInline):
-    model = ClubRU
-
-
-class ClubKGInline(admin.StackedInline):
-    model = ClubKG
-
-
-@admin.register(Club)
-class ClubAdmin(admin.ModelAdmin):
-    inlines = [ClubRUInline, ClubKGInline, ClubENInline]
+@admin.register(models.Club)
+class ClubAdmin(TranslationAdmin):
+    pass

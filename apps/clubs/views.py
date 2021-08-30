@@ -1,9 +1,14 @@
 from rest_framework import generics
 
-from .models import Club
+from . import models
 from .serializers import ClubSerializer
 
 
-class VacancyListAPIView(generics.ListAPIView):
-    queryset = Club.objects.all()
+class ClubListAPIView(generics.ListAPIView):
+    queryset = models.Club.objects.all()
+    serializer_class = ClubSerializer
+
+
+class ClubDetailAPIView(generics.RetrieveAPIView):
+    queryset = models.Club.objects.all()
     serializer_class = ClubSerializer
