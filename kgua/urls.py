@@ -46,6 +46,9 @@ urlpatterns = [
 
     # Благотворительность
     path("api/v1/charity/", include("charity.urls")),
+
+    # Акции
+    path("api/v1/promotion/", include("promotion.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

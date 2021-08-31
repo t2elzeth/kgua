@@ -1,3 +1,13 @@
 from django.db import models
 
-# Create your models here.
+
+class Promotion(models.Model):
+    title = models.CharField(max_length=512)
+    description = models.TextField()
+    date_from = models.DateField()
+    date_to = models.DateField()
+
+
+class PromotionImage(models.Model):
+    promotion = models.ForeignKey(Promotion, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField()

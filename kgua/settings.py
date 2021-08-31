@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     "vacancies",
     "department",
     "event",
-    'charity'
+    'charity',
+    'promotion'
 ]
 
 MIDDLEWARE = [
