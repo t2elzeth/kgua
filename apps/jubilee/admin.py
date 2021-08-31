@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-
+from utils.admin import MultilanguageModelAdmin
 from . import models
 
 
@@ -10,5 +10,5 @@ class JubileeImageInline(admin.StackedInline):
 
 
 @admin.register(models.Jubilee)
-class JubileeAdmin(TranslationAdmin):
+class JubileeAdmin(MultilanguageModelAdmin):
     inlines = [JubileeImageInline]

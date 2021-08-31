@@ -1,7 +1,8 @@
 from django.contrib import admin
-
+from django.conf import settings
 from modeltranslation.admin import TranslationAdmin
 from . import models
+from utils.admin import MultilanguageModelAdmin
 
 
 class CharityImageInline(admin.StackedInline):
@@ -10,5 +11,5 @@ class CharityImageInline(admin.StackedInline):
 
 
 @admin.register(models.Charity)
-class CharityAdmin(TranslationAdmin):
+class CharityAdmin(MultilanguageModelAdmin):
     inlines = [CharityImageInline]

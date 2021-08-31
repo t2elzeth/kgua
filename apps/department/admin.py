@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
-
+from utils.admin import MultilanguageModelAdmin
 from . import models
 
 
@@ -19,7 +19,7 @@ class DepartmentRewardInline(TranslationStackedInline):
 
 
 @admin.register(models.Department)
-class DepartmentAdmin(TranslationAdmin):
+class DepartmentAdmin(MultilanguageModelAdmin):
     inlines = [
         DepartmentHeadTeacherInline,
         DepartmentContactsInline,

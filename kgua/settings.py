@@ -131,3 +131,10 @@ LANGUAGES = (
     ("en", gettext("English")),
     ("ky", gettext("Kyrgyz")),
 )
+
+LANGUAGES_LIST = list(map(lambda l: l[0], LANGUAGES))
+LANGUAGE_NAME = {
+    "ru": "Русский",
+    "en": "English",
+    "ky": "Кыргызча"
+}
