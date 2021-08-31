@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
-
+from utils.admin import MultilanguageModelAdmin
 from .forms import StaffContactsForm
 from .models import (
     Staff,
@@ -46,25 +46,6 @@ class StaffScientificWorksInline(TranslationStackedInline):
     classes = ["collapse"]
 
 
-class MultilanguageModelAdmin(TranslationAdmin):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    # def get_fieldsets(self, request, obj=None):
-    #     fieldset_dict = {
-    #         'classes': ('collapse',),
-    #         'fields': []
-    #     }
-    #     translated_fields = [
-    #         el
-    #         for el in obj.__dict__.keys()
-    #         if not el.startswith("__")
-    #            and not el.endswith("__")
-    #     ]
-    #     print(translated_fields)
-    #     return super().get_fieldsets(request, obj)
-
-
 class StaffRewardInline(TranslationStackedInline):
     model = StaffReward
     extra = 0
@@ -81,20 +62,3 @@ class StaffAdmin(MultilanguageModelAdmin):
         StaffScientificWorksInline,
         StaffRewardInline,
     ]
-
-    fieldsets = (
-        (
-            None,
-            {
-                "fields": (
-                    "department",
-                    "position",
-                    "image",
-                )
-            },
-        ),
-        (
-            "Full Name",
-            {"fields": ("full_name_ru", "full_name_en", "full_name_ky")},
-        ),
-    )

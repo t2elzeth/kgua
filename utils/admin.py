@@ -4,7 +4,7 @@ from django.conf import settings
 
 def is_multilang(field_name):
     for lang in settings.LANGUAGES_LIST:
-        if lang in field_name:
+        if field_name.endswith(lang):
             return True
 
     return False

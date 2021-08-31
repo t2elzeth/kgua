@@ -1,6 +1,7 @@
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 from django.contrib import admin
 from . import models
+from utils.admin import MultilanguageModelAdmin
 
 
 class EventImageInline(admin.StackedInline):
@@ -9,7 +10,7 @@ class EventImageInline(admin.StackedInline):
 
 
 @admin.register(models.Event)
-class EventAdmin(TranslationAdmin):
+class EventAdmin(MultilanguageModelAdmin):
     inlines = (
         EventImageInline,
     )
