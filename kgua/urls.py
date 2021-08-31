@@ -49,6 +49,9 @@ urlpatterns = [
 
     # Акции
     path("api/v1/promotion/", include("promotion.urls")),
+
+    # Юбилеи
+    path("api/v1/jubilee/", include("jubilee.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
