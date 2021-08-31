@@ -43,6 +43,9 @@ urlpatterns = [
 
     # Мероприятия
     path("api/v1/events/", include("event.urls")),
+
+    # Благотворительность
+    path("api/v1/charity/", include("charity.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
