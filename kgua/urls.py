@@ -43,6 +43,8 @@ urlpatterns = [
 
     # Мероприятия
     path("api/v1/events/", include("event.urls")),
+    # Международные мероприятия
+    path("api/v1/international_event/", include("international_event.urls")),
 
     # Благотворительность
     path("api/v1/charity/", include("charity.urls")),

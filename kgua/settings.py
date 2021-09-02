@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "event",
     'charity',
     'promotion',
-    'jubilee'
+    'jubilee',
+    'international_event'
 ]
 
 MIDDLEWARE = [
