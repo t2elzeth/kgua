@@ -105,5 +105,5 @@ class StaffReward(models.Model):
     department = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="rewards"
     )
-    year = models.IntegerField(verbose_name="Год получения")
+    date = models.CharField(max_length=512, verbose_name="Дата получения", blank=True, null=True)
     description = models.TextField(verbose_name="Информация о награде")
