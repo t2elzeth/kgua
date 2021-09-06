@@ -73,7 +73,7 @@ class StaffTraining(models.Model):
     staff = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="trainings"
     )
-    date = models.DateField(verbose_name="До")
+    date = models.CharField(max_length=512, verbose_name="Дата")
     description = models.TextField(verbose_name="Описание")
 
     def __str__(self):
