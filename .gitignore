@@ -4,6 +4,8 @@ staticfiles/
 mediafiles/
 *.odt#
 
+pull.sh
+
 # Django #
 *.log
 *.pot

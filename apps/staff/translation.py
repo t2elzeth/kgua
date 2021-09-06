@@ -26,7 +26,7 @@ class StaffEducationOptions(TranslationOptions):
 
 @register(Staff)
 class StaffOptions(TranslationOptions):
-    fields = ["full_name"]
+    fields = ["full_name", "position"]
 
 
 @register(StaffReward)

@@ -12,13 +12,8 @@ class Staff(models.Model):
     full_name = models.CharField(max_length=512)
     image = models.ImageField(blank=True, null=True)
 
-    POSITION_TEACHER = "teacher"
-    POSITION_RECTOR = "rector"
-    POSITION_CHOICES = (
-        (POSITION_TEACHER, POSITION_TEACHER),
-        (POSITION_RECTOR, POSITION_RECTOR),
-    )
-    position = models.CharField(max_length=512, choices=POSITION_CHOICES)
+    position = models.CharField(max_length=512)
+    education = models
 
     class Meta:
         verbose_name = _("Преподаватель")
@@ -61,8 +56,8 @@ class StaffEducation(models.Model):
     staff = models.ForeignKey(
         "Staff", on_delete=models.CASCADE, related_name="education"
     )
-    from_year = models.IntegerField(verbose_name="Начиная с")
-    to_year = models.IntegerField(verbose_name="До")
+    from_year = models.IntegerField(verbose_name="Начиная с", blank=True, null=True)
+    to_year = models.IntegerField(verbose_name="До", blank=True, null=True)
     description = models.TextField()
 
     def __str__(self):
