@@ -4,8 +4,8 @@ from .models import StaffContactEmail, StaffContacts, StaffEducation
 
 
 class StaffContactsForm(forms.ModelForm):
-    personal_email = forms.EmailField()
-    corporate_email = forms.EmailField()
+    personal_email = forms.EmailField(required=False)
+    corporate_email = forms.EmailField(required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

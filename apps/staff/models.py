@@ -26,7 +26,7 @@ class StaffContacts(models.Model):
     staff = models.OneToOneField(
         "Staff", on_delete=models.CASCADE, related_name="contacts"
     )
-    phone = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = "Контакты"
@@ -36,8 +36,8 @@ class StaffContactEmail(models.Model):
     contact = models.OneToOneField(
         "StaffContacts", on_delete=models.CASCADE, related_name="email"
     )
-    corporate = models.EmailField()
-    personal = models.EmailField()
+    corporate = models.EmailField(blank=True, null=True)
+    personal = models.EmailField(blank=True, null=True)
 
 
 class StaffExperience(models.Model):
