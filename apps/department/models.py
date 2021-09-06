@@ -41,6 +41,7 @@ class DepartmentContacts(models.Model):
     phone = models.CharField(max_length=255, blank=True, null=True)
     first_email = models.EmailField(blank=True, null=True)
     second_email = models.EmailField(blank=True, null=True)
+    address = models.CharField(max_length=512, verbose_name="Адрес", blank=True, null=True)
 
 
 class DepartmentReward(models.Model):
