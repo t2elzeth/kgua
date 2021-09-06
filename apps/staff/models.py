@@ -73,8 +73,7 @@ class StaffTraining(models.Model):
     staff = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="trainings"
     )
-    from_year = models.IntegerField(verbose_name="Начиная с")
-    to_year = models.IntegerField(verbose_name="До")
+    date = models.DateField(verbose_name="До")
     description = models.TextField(verbose_name="Описание")
 
     def __str__(self):
