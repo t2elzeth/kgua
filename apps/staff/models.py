@@ -88,7 +88,7 @@ class StaffScientificWorks(models.Model):
     staff = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="scientific_works"
     )
-    release_date = models.DateField()
+    release_date = models.CharField(max_length=512)
     link = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=512)
     magazin_name = models.CharField(max_length=512)
