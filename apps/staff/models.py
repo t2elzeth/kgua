@@ -13,7 +13,6 @@ class Staff(models.Model):
     image = models.ImageField(blank=True, null=True)
 
     position = models.CharField(max_length=512)
-    education = models
 
     class Meta:
         verbose_name = _("Преподаватель")
@@ -45,8 +44,8 @@ class StaffExperience(models.Model):
     staff = models.OneToOneField(
         "Staff", on_delete=models.CASCADE, related_name="experience"
     )
-    overall = models.IntegerField()
-    pedagogical = models.IntegerField()
+    overall = models.DecimalField(max_digits=5, decimal_places=2)
+    pedagogical = models.DecimalField(max_digits=5, decimal_places=2)
 
     class Meta:
         verbose_name = "Стаж"

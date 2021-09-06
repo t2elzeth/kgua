@@ -8,7 +8,6 @@ class Department(models.Model):
     foundation_year = models.IntegerField(verbose_name="Год образования")
     pps_number = models.TextField(verbose_name="Количество преподователей")
     activities = models.TextField(verbose_name="Деятельность кафедры")
-    pps_info = models.TextField(verbose_name="Информация о ППС")
 
     description = models.TextField(verbose_name="Информация о кафедре")
 

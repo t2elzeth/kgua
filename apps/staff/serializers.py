@@ -30,7 +30,7 @@ class StaffContactsSerializer(serializers.ModelSerializer):
 class StaffTrainingSerializer(MultilanguageModelSerializer):
     class Meta:
         model = StaffTraining
-        fields = ["from_year", "to_year"]
+        fields = ["date"]
 
 
 class StaffEducationSerializer(MultilanguageModelSerializer):
@@ -48,7 +48,7 @@ class StaffExperienceSerializer(serializers.ModelSerializer):
 class StaffRewardSerializer(MultilanguageModelSerializer):
     class Meta:
         model = StaffReward
-        fields = ("year",)
+        fields = ("date",)
 
 
 class StaffSerializer(MultilanguageModelSerializer):

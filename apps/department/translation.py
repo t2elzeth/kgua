@@ -5,7 +5,7 @@ from . import models
 
 @register(models.Department)
 class DepartmentOptions(TranslationOptions):
-    fields = ("title", "description", "pps_number", "activities", "pps_info")
+    fields = ("title", "description", "pps_number", "activities")
 
 
 @register(models.DepartmentReward)
