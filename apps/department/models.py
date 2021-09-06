@@ -6,7 +6,8 @@ class Department(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=512)
     foundation_year = models.IntegerField(verbose_name="Год образования")
-    pps_number = models.TextField(verbose_name="Количество преподователей")
+    pps_number = models.TextField(verbose_name="Количество преподователей", blank=True, null=True)
+    pps_info = models.TextField(verbose_name='Информация о ППС', blank=True, null=True)
     activities = models.TextField(verbose_name="Деятельность кафедры")
 
     description = models.TextField(verbose_name="Информация о кафедре")
