@@ -77,7 +77,7 @@ class StaffTraining(models.Model):
     description = models.TextField(verbose_name="Описание")
 
     def __str__(self):
-        return f"Edu: of {self.staff} {self.from_year}-{self.to_year}"
+        return f"Edu: of {self.staff} {self.date}"
 
     class Meta:
         verbose_name = "Повышение квалификации"
