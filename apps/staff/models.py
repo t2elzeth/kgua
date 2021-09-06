@@ -88,10 +88,10 @@ class StaffScientificWorks(models.Model):
     staff = models.ForeignKey(
         Staff, on_delete=models.CASCADE, related_name="scientific_works"
     )
-    release_date = models.CharField(max_length=512)
+    release_date = models.CharField(max_length=512, blank=True, null=True)
     link = models.URLField(blank=True, null=True)
     title = models.CharField(max_length=512)
-    magazin_name = models.CharField(max_length=512)
+    magazin_name = models.CharField(max_length=512, blank=True, null=True)
 
     def __str__(self):
         return f"SciWork: of {self.staff} {self.release_date}"
