@@ -129,8 +129,8 @@ DATETIME_FORMAT = "d M Y H:i:s"
 gettext = lambda s: s
 LANGUAGES = (
     ("ru", gettext("Russian")),
-    ("en", gettext("English")),
     ("ky", gettext("Kyrgyz")),
+    ("en", gettext("English")),
 )
 
 LANGUAGES_LIST = list(map(lambda l: l[0], LANGUAGES))
