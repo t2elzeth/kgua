@@ -38,8 +38,8 @@ class DepartmentContacts(models.Model):
     department = models.OneToOneField(
         Department, on_delete=models.CASCADE, related_name="contacts"
     )
-    phone = models.CharField(max_length=255)
-    first_email = models.EmailField()
+    phone = models.CharField(max_length=255, blank=True, null=True)
+    first_email = models.EmailField(blank=True, null=True)
     second_email = models.EmailField(blank=True, null=True)
 
 
@@ -47,5 +47,5 @@ class DepartmentReward(models.Model):
     department = models.ForeignKey(
         Department, on_delete=models.CASCADE, related_name="rewards"
     )
-    year = models.IntegerField(verbose_name="Год получения")
+    date = models.CharField(max_length=512, verbose_name="Дата получения", blank=True, null=True)
     description = models.TextField(verbose_name="Информация о награде")

@@ -15,7 +15,7 @@ class DepartmentContactsSerializer(serializers.ModelSerializer):
 class DepartmentRewardSerializer(MultilanguageModelSerializer):
     class Meta:
         model = models.DepartmentReward
-        fields = ("year",)
+        fields = ("date",)
 
 
 class DepartmentSerializer(MultilanguageModelSerializer):
