@@ -44,8 +44,8 @@ class StaffExperience(models.Model):
     staff = models.OneToOneField(
         "Staff", on_delete=models.CASCADE, related_name="experience"
     )
-    overall = models.DecimalField(max_digits=5, decimal_places=2)
-    pedagogical = models.DecimalField(max_digits=5, decimal_places=2)
+    overall = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
+    pedagogical = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
 
     class Meta:
         verbose_name = "Стаж"
