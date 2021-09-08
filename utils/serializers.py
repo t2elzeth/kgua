@@ -15,8 +15,8 @@ class MultilanguageField(serializers.Field):
             el
             for el in obj.__dict__.keys()
             if not el.startswith("__")
-            and not el.endswith("__")
-            and el.endswith(self.lang)
+               and not el.endswith("__")
+               and el.endswith(self.lang)
         ]
         res = {}
         for f in translated_fields:

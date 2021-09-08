@@ -54,6 +54,9 @@ urlpatterns = [
 
     # Юбилеи
     path("api/v1/jubilee/", include("jubilee.urls")),
+
+    # Отделы
+    path("api/v1/bureau/", include("bureau.urls"))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
