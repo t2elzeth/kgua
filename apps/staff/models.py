@@ -1,5 +1,11 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from utils.models import CompressImageBeforeUpload
+import sys
+from io import BytesIO
+
+from PIL import Image
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 
 class Staff(models.Model):

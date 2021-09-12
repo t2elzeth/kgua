@@ -1,6 +1,7 @@
 FROM python:3.9
 
 RUN pip3 install --upgrade pip
+RUN apt update && apt install imagemagick
 
 WORKDIR /app
 
